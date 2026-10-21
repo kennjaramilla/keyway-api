@@ -3,10 +3,12 @@ import { APP_GUARD } from "@nestjs/core";
 import { SessionGuard } from "./auth/session.guard.js";
 import { DatabaseModule } from "./database/database.module.js";
 import { HealthController } from "./health/health.controller.js";
+import { RequestsModule } from "./requests/requests.module.js";
 import { SessionModule } from "./session/session.module.js";
+import { VendorsModule } from "./vendors/vendors.module.js";
 
 @Module({
-  imports: [DatabaseModule, SessionModule],
+  imports: [DatabaseModule, SessionModule, RequestsModule, VendorsModule],
   controllers: [HealthController],
   providers: [{ provide: APP_GUARD, useClass: SessionGuard }],
 })

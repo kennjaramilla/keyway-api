@@ -41,8 +41,20 @@ src/<feature>/     controller + service + *.e2e.spec.ts
 test/app.ts        useApp(): in-memory MongoDB, re-seed per test, api.as("coordinator")
 ```
 
+## Endpoints
+
+All under `/api`. `@Public()` routes need no session.
+
+| Area     | Endpoints                                                                                                                                    |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| Health   | `GET /health` (public)                                                                                                                       |
+| Session  | `GET /demo/people` (public), `GET\|POST\|DELETE /session`, `PUT /session/building`, `POST /demo/reset`                                       |
+| Requests | `GET /requests?buildingId`, `POST /requests`, `GET /requests/:id`, `POST /requests/:id/{triage,assign,schedule,start,resolve,cancel,reopen}` |
+| Vendors  | `GET /vendors?buildingId`                                                                                                                    |
+
 ## Conventions
 
 - Sessions use the same `keyway_session` cookie as the frontend (`<role>.<userId>.<activeBuildingId>`), now httpOnly. Every request re-checks the user and building against the database, so editing the cookie gains nothing.
+- Workflow steps use the shared status machine (`nextStatus`). Each step is one atomic update that also checks the status hasn't changed since it was read, so two people acting at once can't both win.
 - Errors are problem details JSON (`{ title, status, detail, code?, errors? }`), the same shape as the mock API.
 - `401` no session, `403` wrong role, `404` out of scope (never reveals that something exists), `409` invalid state change, `422` validation.
