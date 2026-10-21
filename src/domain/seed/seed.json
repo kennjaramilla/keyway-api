@@ -1,0 +1,3512 @@
+{
+  "meta": {
+    "version": 1,
+    "anchorNow": "2026-10-19T14:00:00Z",
+    "timezone": "America/New_York",
+    "note": "All timestamps are relative to anchorNow. seed.ts should shift every timestamp by (Date.now() - anchorNow) on load/reset.",
+    "slaHours": {
+      "emergency": 24,
+      "high": 72,
+      "normal": 168,
+      "low": 336
+    }
+  },
+  "buildings": [
+    {
+      "id": "bld_harbor",
+      "slug": "harbor-view-lofts",
+      "name": "Harbor View Lofts",
+      "address": "41 Quayside Row, Westmere",
+      "yearBuilt": 1921,
+      "unitCount": 64,
+      "timezone": "America/New_York",
+      "coordinatorIds": ["usr_coord_grace"],
+      "description": "Converted waterfront warehouse. Pet-friendly, strict quiet hours, shared laundry."
+    },
+    {
+      "id": "bld_maple",
+      "slug": "maple-court",
+      "name": "Maple Court",
+      "address": "8 Alder Street, Westmere",
+      "yearBuilt": 1962,
+      "unitCount": 36,
+      "timezone": "America/New_York",
+      "coordinatorIds": ["usr_coord_grace"],
+      "description": "Garden-style brick building with boiler heat. No in-unit laundry or appliance changes."
+    },
+    {
+      "id": "bld_linden",
+      "slug": "the-linden",
+      "name": "The Linden",
+      "address": "300 Linden Rise, Westmere",
+      "yearBuilt": 2025,
+      "unitCount": 120,
+      "timezone": "America/New_York",
+      "coordinatorIds": ["usr_coord_theo"],
+      "description": "New mid-rise with smart locks, in-unit washer-dryers and EV charging."
+    }
+  ],
+  "units": [
+    {
+      "id": "unit_hvl_4b",
+      "buildingId": "bld_harbor",
+      "label": "4B",
+      "floor": 4,
+      "bedrooms": 1
+    },
+    {
+      "id": "unit_hvl_7a",
+      "buildingId": "bld_harbor",
+      "label": "7A",
+      "floor": 7,
+      "bedrooms": 2
+    },
+    {
+      "id": "unit_mpc_2c",
+      "buildingId": "bld_maple",
+      "label": "2C",
+      "floor": 2,
+      "bedrooms": 2
+    },
+    {
+      "id": "unit_mpc_1a",
+      "buildingId": "bld_maple",
+      "label": "1A",
+      "floor": 1,
+      "bedrooms": 1
+    },
+    {
+      "id": "unit_lin_12f",
+      "buildingId": "bld_linden",
+      "label": "12F",
+      "floor": 12,
+      "bedrooms": 2
+    },
+    {
+      "id": "unit_lin_5d",
+      "buildingId": "bld_linden",
+      "label": "5D",
+      "floor": 5,
+      "bedrooms": 1
+    }
+  ],
+  "users": [
+    {
+      "id": "usr_res_amara",
+      "role": "resident",
+      "name": "Amara Okafor",
+      "email": "amara.okafor@example.com",
+      "unitId": "unit_hvl_4b",
+      "buildingIds": ["bld_harbor"]
+    },
+    {
+      "id": "usr_res_diego",
+      "role": "resident",
+      "name": "Diego Santillán",
+      "email": "diego.santillan@example.com",
+      "unitId": "unit_hvl_7a",
+      "buildingIds": ["bld_harbor"]
+    },
+    {
+      "id": "usr_res_meilin",
+      "role": "resident",
+      "name": "Mei-Lin Castellano",
+      "email": "meilin.castellano@example.com",
+      "unitId": "unit_mpc_2c",
+      "buildingIds": ["bld_maple"]
+    },
+    {
+      "id": "usr_res_rashid",
+      "role": "resident",
+      "name": "Rashid Haddad",
+      "email": "rashid.haddad@example.com",
+      "unitId": "unit_mpc_1a",
+      "buildingIds": ["bld_maple"]
+    },
+    {
+      "id": "usr_res_priya",
+      "role": "resident",
+      "name": "Priya Natarajan",
+      "email": "priya.natarajan@example.com",
+      "unitId": "unit_lin_12f",
+      "buildingIds": ["bld_linden"]
+    },
+    {
+      "id": "usr_res_jonah",
+      "role": "resident",
+      "name": "Jonah Abernethy",
+      "email": "jonah.abernethy@example.com",
+      "unitId": "unit_lin_5d",
+      "buildingIds": ["bld_linden"]
+    },
+    {
+      "id": "usr_coord_grace",
+      "role": "coordinator",
+      "name": "Grace Adeyemi",
+      "email": "grace.adeyemi@example.com",
+      "unitId": null,
+      "buildingIds": ["bld_harbor", "bld_maple"]
+    },
+    {
+      "id": "usr_coord_theo",
+      "role": "coordinator",
+      "name": "Theo Marchetti",
+      "email": "theo.marchetti@example.com",
+      "unitId": null,
+      "buildingIds": ["bld_linden"]
+    },
+    {
+      "id": "usr_mgr_helena",
+      "role": "manager",
+      "name": "Helena Brightwater",
+      "email": "helena.brightwater@example.com",
+      "unitId": null,
+      "buildingIds": ["bld_harbor", "bld_maple", "bld_linden"]
+    }
+  ],
+  "vendors": [
+    {
+      "id": "ven_tidewater",
+      "name": "Tidewater Plumbing Co.",
+      "trade": "plumbing",
+      "phone": "(555) 010-3101",
+      "buildingIds": ["bld_harbor", "bld_maple", "bld_linden"]
+    },
+    {
+      "id": "ven_brightline",
+      "name": "Brightline Electric",
+      "trade": "electrical",
+      "phone": "(555) 010-3102",
+      "buildingIds": ["bld_harbor", "bld_maple", "bld_linden"]
+    },
+    {
+      "id": "ven_northwind",
+      "name": "Northwind Heating & Air",
+      "trade": "heating_cooling",
+      "phone": "(555) 010-3103",
+      "buildingIds": ["bld_harbor", "bld_maple", "bld_linden"]
+    },
+    {
+      "id": "ven_corner",
+      "name": "Corner Appliance Repair",
+      "trade": "appliance",
+      "phone": "(555) 010-3104",
+      "buildingIds": ["bld_harbor", "bld_maple", "bld_linden"]
+    },
+    {
+      "id": "ven_ironbark",
+      "name": "Ironbark Lock & Access",
+      "trade": "doors_locks",
+      "phone": "(555) 010-3105",
+      "buildingIds": ["bld_harbor", "bld_maple", "bld_linden"]
+    },
+    {
+      "id": "ven_fernhill",
+      "name": "Fernhill Pest Care",
+      "trade": "pest",
+      "phone": "(555) 010-3106",
+      "buildingIds": ["bld_harbor", "bld_maple", "bld_linden"]
+    },
+    {
+      "id": "ven_plumblevel",
+      "name": "Plumb & Level Handyman",
+      "trade": "general",
+      "phone": "(555) 010-3107",
+      "buildingIds": ["bld_harbor", "bld_maple"]
+    }
+  ],
+  "requests": [
+    {
+      "id": "req_001",
+      "number": "KW-1001",
+      "buildingId": "bld_harbor",
+      "unitId": "unit_hvl_4b",
+      "residentId": "usr_res_amara",
+      "coordinatorId": "usr_coord_grace",
+      "vendorId": "ven_tidewater",
+      "category": "plumbing",
+      "urgency": "normal",
+      "status": "resolved",
+      "title": "Kitchen sink draining slowly",
+      "description": "Water takes several minutes to drain from the left basin. Plunging helped for a day but it's slow again.",
+      "location": "kitchen",
+      "preferredWindows": [
+        {
+          "date": "2026-09-22",
+          "slot": "evening"
+        },
+        {
+          "date": "2026-09-23",
+          "slot": "morning"
+        }
+      ],
+      "permissionToEnter": true,
+      "entryNotes": "Dog (greyhound) will be in the bedroom.",
+      "visitWindow": {
+        "start": "2026-09-23T14:00:00Z",
+        "end": "2026-09-23T16:00:00Z"
+      },
+      "createdAt": "2026-09-21T13:00:00Z",
+      "updatedAt": "2026-09-23T15:30:00Z",
+      "resolvedAt": "2026-09-23T15:30:00Z",
+      "timeline": [
+        {
+          "id": "evt_001",
+          "type": "created",
+          "at": "2026-09-21T13:00:00Z",
+          "actorId": "usr_res_amara",
+          "fromStatus": null,
+          "toStatus": "new"
+        },
+        {
+          "id": "evt_002",
+          "type": "triaged",
+          "at": "2026-09-21T17:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "new",
+          "toStatus": "triaged"
+        },
+        {
+          "id": "evt_003",
+          "type": "vendor_assigned",
+          "at": "2026-09-21T17:30:00Z",
+          "actorId": "usr_coord_grace",
+          "note": "Assigned Tidewater Plumbing Co.",
+          "meta": {
+            "vendorId": "ven_tidewater"
+          }
+        },
+        {
+          "id": "evt_004",
+          "type": "scheduled",
+          "at": "2026-09-21T18:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "triaged",
+          "toStatus": "scheduled",
+          "meta": {
+            "visitWindow": {
+              "start": "2026-09-23T14:00:00Z",
+              "end": "2026-09-23T16:00:00Z"
+            }
+          }
+        },
+        {
+          "id": "evt_005",
+          "type": "started",
+          "at": "2026-09-23T14:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "scheduled",
+          "toStatus": "in_progress"
+        },
+        {
+          "id": "evt_006",
+          "type": "resolved",
+          "at": "2026-09-23T15:30:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "in_progress",
+          "toStatus": "resolved",
+          "note": "Cleared a grease clog in the trap and flushed the line."
+        }
+      ]
+    },
+    {
+      "id": "req_002",
+      "number": "KW-1002",
+      "buildingId": "bld_linden",
+      "unitId": "unit_lin_12f",
+      "residentId": "usr_res_priya",
+      "coordinatorId": "usr_coord_theo",
+      "vendorId": "ven_ironbark",
+      "category": "doors_locks",
+      "urgency": "high",
+      "status": "resolved",
+      "title": "Smart lock shows low battery warning",
+      "description": "The keypad flashes a red battery icon and the app says the backup battery is at 5%.",
+      "location": "entry",
+      "preferredWindows": [
+        {
+          "date": "2026-09-25",
+          "slot": "morning"
+        }
+      ],
+      "permissionToEnter": true,
+      "entryNotes": "Use a one-time code; cat may hide under the bed.",
+      "visitWindow": {
+        "start": "2026-09-24T21:00:00Z",
+        "end": "2026-09-24T23:00:00Z"
+      },
+      "createdAt": "2026-09-24T12:00:00Z",
+      "updatedAt": "2026-09-24T22:00:00Z",
+      "resolvedAt": "2026-09-24T22:00:00Z",
+      "timeline": [
+        {
+          "id": "evt_007",
+          "type": "created",
+          "at": "2026-09-24T12:00:00Z",
+          "actorId": "usr_res_priya",
+          "fromStatus": null,
+          "toStatus": "new"
+        },
+        {
+          "id": "evt_008",
+          "type": "triaged",
+          "at": "2026-09-24T13:30:00Z",
+          "actorId": "usr_coord_theo",
+          "fromStatus": "new",
+          "toStatus": "triaged"
+        },
+        {
+          "id": "evt_009",
+          "type": "vendor_assigned",
+          "at": "2026-09-24T14:00:00Z",
+          "actorId": "usr_coord_theo",
+          "note": "Assigned Ironbark Lock & Access",
+          "meta": {
+            "vendorId": "ven_ironbark"
+          }
+        },
+        {
+          "id": "evt_010",
+          "type": "scheduled",
+          "at": "2026-09-24T14:30:00Z",
+          "actorId": "usr_coord_theo",
+          "fromStatus": "triaged",
+          "toStatus": "scheduled",
+          "meta": {
+            "visitWindow": {
+              "start": "2026-09-24T21:00:00Z",
+              "end": "2026-09-24T23:00:00Z"
+            }
+          }
+        },
+        {
+          "id": "evt_011",
+          "type": "started",
+          "at": "2026-09-24T21:00:00Z",
+          "actorId": "usr_coord_theo",
+          "fromStatus": "scheduled",
+          "toStatus": "in_progress"
+        },
+        {
+          "id": "evt_012",
+          "type": "resolved",
+          "at": "2026-09-24T22:00:00Z",
+          "actorId": "usr_coord_theo",
+          "fromStatus": "in_progress",
+          "toStatus": "resolved",
+          "note": "Replaced lock battery pack and confirmed app pairing."
+        }
+      ]
+    },
+    {
+      "id": "req_003",
+      "number": "KW-1003",
+      "buildingId": "bld_maple",
+      "unitId": "unit_mpc_2c",
+      "residentId": "usr_res_meilin",
+      "coordinatorId": "usr_coord_grace",
+      "vendorId": "ven_fernhill",
+      "category": "pest",
+      "urgency": "normal",
+      "status": "resolved",
+      "title": "Mouse droppings under the kitchen sink",
+      "description": "Found droppings in the cabinet under the sink and near the stove two mornings in a row.",
+      "location": "kitchen",
+      "preferredWindows": [
+        {
+          "date": "2026-09-28",
+          "slot": "afternoon"
+        },
+        {
+          "date": "2026-09-29",
+          "slot": "evening"
+        }
+      ],
+      "permissionToEnter": true,
+      "entryNotes": null,
+      "visitWindow": {
+        "start": "2026-09-30T13:00:00Z",
+        "end": "2026-09-30T15:00:00Z"
+      },
+      "createdAt": "2026-09-27T15:00:00Z",
+      "updatedAt": "2026-09-30T15:00:00Z",
+      "resolvedAt": "2026-09-30T15:00:00Z",
+      "timeline": [
+        {
+          "id": "evt_013",
+          "type": "created",
+          "at": "2026-09-27T15:00:00Z",
+          "actorId": "usr_res_meilin",
+          "fromStatus": null,
+          "toStatus": "new"
+        },
+        {
+          "id": "evt_014",
+          "type": "triaged",
+          "at": "2026-09-27T19:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "new",
+          "toStatus": "triaged"
+        },
+        {
+          "id": "evt_015",
+          "type": "vendor_assigned",
+          "at": "2026-09-27T19:30:00Z",
+          "actorId": "usr_coord_grace",
+          "note": "Assigned Fernhill Pest Care",
+          "meta": {
+            "vendorId": "ven_fernhill"
+          }
+        },
+        {
+          "id": "evt_016",
+          "type": "scheduled",
+          "at": "2026-09-27T20:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "triaged",
+          "toStatus": "scheduled",
+          "meta": {
+            "visitWindow": {
+              "start": "2026-09-30T13:00:00Z",
+              "end": "2026-09-30T15:00:00Z"
+            }
+          }
+        },
+        {
+          "id": "evt_017",
+          "type": "started",
+          "at": "2026-09-30T13:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "scheduled",
+          "toStatus": "in_progress"
+        },
+        {
+          "id": "evt_018",
+          "type": "resolved",
+          "at": "2026-09-30T15:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "in_progress",
+          "toStatus": "resolved",
+          "note": "Sealed two gaps behind the stove and set traps. Follow-up check found no new activity."
+        }
+      ]
+    },
+    {
+      "id": "req_004",
+      "number": "KW-1004",
+      "buildingId": "bld_harbor",
+      "unitId": "unit_hvl_4b",
+      "residentId": "usr_res_amara",
+      "coordinatorId": "usr_coord_grace",
+      "vendorId": "ven_plumblevel",
+      "category": "general",
+      "urgency": "low",
+      "status": "resolved",
+      "title": "Closet door off its track",
+      "description": "The bedroom sliding closet door keeps jumping off the bottom track.",
+      "location": "bedroom",
+      "preferredWindows": [
+        {
+          "date": "2026-09-30",
+          "slot": "evening"
+        }
+      ],
+      "permissionToEnter": true,
+      "entryNotes": "Dog will be crated.",
+      "visitWindow": {
+        "start": "2026-10-05T15:00:00Z",
+        "end": "2026-10-05T17:00:00Z"
+      },
+      "createdAt": "2026-09-29T20:00:00Z",
+      "updatedAt": "2026-10-05T16:00:00Z",
+      "resolvedAt": "2026-10-05T16:00:00Z",
+      "timeline": [
+        {
+          "id": "evt_019",
+          "type": "created",
+          "at": "2026-09-29T20:00:00Z",
+          "actorId": "usr_res_amara",
+          "fromStatus": null,
+          "toStatus": "new"
+        },
+        {
+          "id": "evt_020",
+          "type": "triaged",
+          "at": "2026-09-30T16:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "new",
+          "toStatus": "triaged"
+        },
+        {
+          "id": "evt_021",
+          "type": "vendor_assigned",
+          "at": "2026-09-30T16:30:00Z",
+          "actorId": "usr_coord_grace",
+          "note": "Assigned Plumb & Level Handyman",
+          "meta": {
+            "vendorId": "ven_plumblevel"
+          }
+        },
+        {
+          "id": "evt_022",
+          "type": "scheduled",
+          "at": "2026-09-30T17:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "triaged",
+          "toStatus": "scheduled",
+          "meta": {
+            "visitWindow": {
+              "start": "2026-10-05T15:00:00Z",
+              "end": "2026-10-05T17:00:00Z"
+            }
+          }
+        },
+        {
+          "id": "evt_023",
+          "type": "started",
+          "at": "2026-10-05T15:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "scheduled",
+          "toStatus": "in_progress"
+        },
+        {
+          "id": "evt_024",
+          "type": "resolved",
+          "at": "2026-10-05T16:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "in_progress",
+          "toStatus": "resolved",
+          "note": "Replaced worn bottom guide and adjusted rollers."
+        }
+      ]
+    },
+    {
+      "id": "req_005",
+      "number": "KW-1005",
+      "buildingId": "bld_maple",
+      "unitId": "unit_mpc_1a",
+      "residentId": "usr_res_rashid",
+      "coordinatorId": "usr_coord_grace",
+      "vendorId": "ven_northwind",
+      "category": "heating_cooling",
+      "urgency": "high",
+      "status": "resolved",
+      "title": "Bedroom radiator not heating",
+      "description": "The bedroom radiator stays cold even when the living room one is hot. Room is around 60°F at night.",
+      "location": "bedroom",
+      "preferredWindows": [
+        {
+          "date": "2026-10-02",
+          "slot": "morning"
+        },
+        {
+          "date": "2026-10-03",
+          "slot": "afternoon"
+        }
+      ],
+      "permissionToEnter": false,
+      "entryNotes": null,
+      "visitWindow": {
+        "start": "2026-10-02T13:00:00Z",
+        "end": "2026-10-02T15:00:00Z"
+      },
+      "createdAt": "2026-10-01T23:00:00Z",
+      "updatedAt": "2026-10-02T16:00:00Z",
+      "resolvedAt": "2026-10-02T16:00:00Z",
+      "timeline": [
+        {
+          "id": "evt_025",
+          "type": "created",
+          "at": "2026-10-01T23:00:00Z",
+          "actorId": "usr_res_rashid",
+          "fromStatus": null,
+          "toStatus": "new"
+        },
+        {
+          "id": "evt_026",
+          "type": "triaged",
+          "at": "2026-10-02T11:30:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "new",
+          "toStatus": "triaged"
+        },
+        {
+          "id": "evt_027",
+          "type": "vendor_assigned",
+          "at": "2026-10-02T12:00:00Z",
+          "actorId": "usr_coord_grace",
+          "note": "Assigned Northwind Heating & Air",
+          "meta": {
+            "vendorId": "ven_northwind"
+          }
+        },
+        {
+          "id": "evt_028",
+          "type": "scheduled",
+          "at": "2026-10-02T12:30:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "triaged",
+          "toStatus": "scheduled",
+          "meta": {
+            "visitWindow": {
+              "start": "2026-10-02T13:00:00Z",
+              "end": "2026-10-02T15:00:00Z"
+            }
+          }
+        },
+        {
+          "id": "evt_029",
+          "type": "started",
+          "at": "2026-10-02T13:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "scheduled",
+          "toStatus": "in_progress"
+        },
+        {
+          "id": "evt_030",
+          "type": "resolved",
+          "at": "2026-10-02T16:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "in_progress",
+          "toStatus": "resolved",
+          "note": "Bled trapped air and replaced a sticking valve."
+        }
+      ]
+    },
+    {
+      "id": "req_006",
+      "number": "KW-1006",
+      "buildingId": "bld_maple",
+      "unitId": "unit_mpc_1a",
+      "residentId": "usr_res_rashid",
+      "coordinatorId": "usr_coord_grace",
+      "vendorId": null,
+      "category": "general",
+      "urgency": "low",
+      "status": "triaged",
+      "title": "Kitchen cabinet hinge loose",
+      "description": "The upper cabinet door next to the stove hangs crooked; a hinge screw is stripped.",
+      "location": "kitchen",
+      "preferredWindows": [
+        {
+          "date": "2026-10-04",
+          "slot": "afternoon"
+        }
+      ],
+      "permissionToEnter": true,
+      "entryNotes": null,
+      "visitWindow": null,
+      "createdAt": "2026-10-03T17:00:00Z",
+      "updatedAt": "2026-10-04T13:00:00Z",
+      "resolvedAt": null,
+      "timeline": [
+        {
+          "id": "evt_031",
+          "type": "created",
+          "at": "2026-10-03T17:00:00Z",
+          "actorId": "usr_res_rashid",
+          "fromStatus": null,
+          "toStatus": "new"
+        },
+        {
+          "id": "evt_032",
+          "type": "triaged",
+          "at": "2026-10-04T13:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "new",
+          "toStatus": "triaged"
+        }
+      ]
+    },
+    {
+      "id": "req_007",
+      "number": "KW-1007",
+      "buildingId": "bld_harbor",
+      "unitId": "unit_hvl_7a",
+      "residentId": "usr_res_diego",
+      "coordinatorId": "usr_coord_grace",
+      "vendorId": "ven_brightline",
+      "category": "electrical",
+      "urgency": "normal",
+      "status": "resolved",
+      "title": "Two living room outlets stopped working",
+      "description": "The two outlets on the window wall are dead. The breaker panel doesn't show a tripped breaker.",
+      "location": "living_room",
+      "preferredWindows": [
+        {
+          "date": "2026-10-05",
+          "slot": "evening"
+        },
+        {
+          "date": "2026-10-06",
+          "slot": "morning"
+        }
+      ],
+      "permissionToEnter": true,
+      "entryNotes": null,
+      "visitWindow": {
+        "start": "2026-10-06T14:00:00Z",
+        "end": "2026-10-06T16:00:00Z"
+      },
+      "createdAt": "2026-10-04T18:00:00Z",
+      "updatedAt": "2026-10-06T16:30:00Z",
+      "resolvedAt": "2026-10-06T16:30:00Z",
+      "timeline": [
+        {
+          "id": "evt_033",
+          "type": "created",
+          "at": "2026-10-04T18:00:00Z",
+          "actorId": "usr_res_diego",
+          "fromStatus": null,
+          "toStatus": "new"
+        },
+        {
+          "id": "evt_034",
+          "type": "triaged",
+          "at": "2026-10-04T22:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "new",
+          "toStatus": "triaged"
+        },
+        {
+          "id": "evt_035",
+          "type": "vendor_assigned",
+          "at": "2026-10-04T22:30:00Z",
+          "actorId": "usr_coord_grace",
+          "note": "Assigned Brightline Electric",
+          "meta": {
+            "vendorId": "ven_brightline"
+          }
+        },
+        {
+          "id": "evt_036",
+          "type": "scheduled",
+          "at": "2026-10-04T23:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "triaged",
+          "toStatus": "scheduled",
+          "meta": {
+            "visitWindow": {
+              "start": "2026-10-06T14:00:00Z",
+              "end": "2026-10-06T16:00:00Z"
+            }
+          }
+        },
+        {
+          "id": "evt_037",
+          "type": "started",
+          "at": "2026-10-06T14:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "scheduled",
+          "toStatus": "in_progress"
+        },
+        {
+          "id": "evt_038",
+          "type": "resolved",
+          "at": "2026-10-06T16:30:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "in_progress",
+          "toStatus": "resolved",
+          "note": "Reset a tripped GFCI hidden behind the bookshelf and labelled it."
+        }
+      ]
+    },
+    {
+      "id": "req_008",
+      "number": "KW-1008",
+      "buildingId": "bld_linden",
+      "unitId": "unit_lin_5d",
+      "residentId": "usr_res_jonah",
+      "coordinatorId": "usr_coord_theo",
+      "vendorId": "ven_corner",
+      "category": "appliance",
+      "urgency": "normal",
+      "status": "resolved",
+      "title": "Washer-dryer shows error E21 and won't drain",
+      "description": "Cycle stops mid-wash with error E21. Water stays in the drum.",
+      "location": "laundry",
+      "preferredWindows": [
+        {
+          "date": "2026-10-08",
+          "slot": "morning"
+        }
+      ],
+      "permissionToEnter": true,
+      "entryNotes": "Use a one-time code.",
+      "visitWindow": {
+        "start": "2026-10-09T17:00:00Z",
+        "end": "2026-10-09T19:00:00Z"
+      },
+      "createdAt": "2026-10-08T00:00:00Z",
+      "updatedAt": "2026-10-09T18:30:00Z",
+      "resolvedAt": "2026-10-09T18:30:00Z",
+      "timeline": [
+        {
+          "id": "evt_039",
+          "type": "created",
+          "at": "2026-10-08T00:00:00Z",
+          "actorId": "usr_res_jonah",
+          "fromStatus": null,
+          "toStatus": "new"
+        },
+        {
+          "id": "evt_040",
+          "type": "triaged",
+          "at": "2026-10-08T12:30:00Z",
+          "actorId": "usr_coord_theo",
+          "fromStatus": "new",
+          "toStatus": "triaged"
+        },
+        {
+          "id": "evt_041",
+          "type": "vendor_assigned",
+          "at": "2026-10-08T13:00:00Z",
+          "actorId": "usr_coord_theo",
+          "note": "Assigned Corner Appliance Repair",
+          "meta": {
+            "vendorId": "ven_corner"
+          }
+        },
+        {
+          "id": "evt_042",
+          "type": "scheduled",
+          "at": "2026-10-08T13:30:00Z",
+          "actorId": "usr_coord_theo",
+          "fromStatus": "triaged",
+          "toStatus": "scheduled",
+          "meta": {
+            "visitWindow": {
+              "start": "2026-10-09T17:00:00Z",
+              "end": "2026-10-09T19:00:00Z"
+            }
+          }
+        },
+        {
+          "id": "evt_043",
+          "type": "started",
+          "at": "2026-10-09T17:00:00Z",
+          "actorId": "usr_coord_theo",
+          "fromStatus": "scheduled",
+          "toStatus": "in_progress"
+        },
+        {
+          "id": "evt_044",
+          "type": "resolved",
+          "at": "2026-10-09T18:30:00Z",
+          "actorId": "usr_coord_theo",
+          "fromStatus": "in_progress",
+          "toStatus": "resolved",
+          "note": "Cleared the drain pump filter (sock caught in it)."
+        }
+      ]
+    },
+    {
+      "id": "req_009",
+      "number": "KW-1009",
+      "buildingId": "bld_maple",
+      "unitId": "unit_mpc_1a",
+      "residentId": "usr_res_rashid",
+      "coordinatorId": "usr_coord_grace",
+      "vendorId": "ven_tidewater",
+      "category": "plumbing",
+      "urgency": "emergency",
+      "status": "resolved",
+      "title": "Water leaking through bathroom ceiling",
+      "description": "Water is dripping from the bathroom ceiling light. I turned the light off at the switch.",
+      "location": "bathroom",
+      "preferredWindows": [],
+      "permissionToEnter": true,
+      "entryNotes": null,
+      "visitWindow": {
+        "start": "2026-10-10T13:00:00Z",
+        "end": "2026-10-10T15:00:00Z"
+      },
+      "createdAt": "2026-10-10T11:00:00Z",
+      "updatedAt": "2026-10-10T15:00:00Z",
+      "resolvedAt": "2026-10-10T15:00:00Z",
+      "timeline": [
+        {
+          "id": "evt_045",
+          "type": "created",
+          "at": "2026-10-10T11:00:00Z",
+          "actorId": "usr_res_rashid",
+          "fromStatus": null,
+          "toStatus": "new"
+        },
+        {
+          "id": "evt_046",
+          "type": "triaged",
+          "at": "2026-10-10T11:15:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "new",
+          "toStatus": "triaged"
+        },
+        {
+          "id": "evt_047",
+          "type": "vendor_assigned",
+          "at": "2026-10-10T11:45:00Z",
+          "actorId": "usr_coord_grace",
+          "note": "Assigned Tidewater Plumbing Co.",
+          "meta": {
+            "vendorId": "ven_tidewater"
+          }
+        },
+        {
+          "id": "evt_048",
+          "type": "scheduled",
+          "at": "2026-10-10T12:15:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "triaged",
+          "toStatus": "scheduled",
+          "meta": {
+            "visitWindow": {
+              "start": "2026-10-10T13:00:00Z",
+              "end": "2026-10-10T15:00:00Z"
+            }
+          }
+        },
+        {
+          "id": "evt_049",
+          "type": "started",
+          "at": "2026-10-10T13:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "scheduled",
+          "toStatus": "in_progress"
+        },
+        {
+          "id": "evt_050",
+          "type": "resolved",
+          "at": "2026-10-10T15:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "in_progress",
+          "toStatus": "resolved",
+          "note": "Upstairs supply line failed. Replaced line, dried ceiling, patched drywall."
+        }
+      ]
+    },
+    {
+      "id": "req_010",
+      "number": "KW-1010",
+      "buildingId": "bld_maple",
+      "unitId": "unit_mpc_2c",
+      "residentId": "usr_res_meilin",
+      "coordinatorId": "usr_coord_grace",
+      "vendorId": "ven_plumblevel",
+      "category": "general",
+      "urgency": "normal",
+      "status": "in_progress",
+      "title": "Window sash cord broken",
+      "description": "The bedroom window won't stay open; one of the sash cords snapped.",
+      "location": "bedroom",
+      "preferredWindows": [
+        {
+          "date": "2026-10-11",
+          "slot": "evening"
+        }
+      ],
+      "permissionToEnter": true,
+      "entryNotes": null,
+      "visitWindow": {
+        "start": "2026-10-17T14:00:00Z",
+        "end": "2026-10-17T16:00:00Z"
+      },
+      "createdAt": "2026-10-10T14:00:00Z",
+      "updatedAt": "2026-10-17T16:15:00Z",
+      "resolvedAt": null,
+      "timeline": [
+        {
+          "id": "evt_051",
+          "type": "created",
+          "at": "2026-10-10T14:00:00Z",
+          "actorId": "usr_res_meilin",
+          "fromStatus": null,
+          "toStatus": "new"
+        },
+        {
+          "id": "evt_052",
+          "type": "triaged",
+          "at": "2026-10-10T18:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "new",
+          "toStatus": "triaged"
+        },
+        {
+          "id": "evt_053",
+          "type": "vendor_assigned",
+          "at": "2026-10-10T18:30:00Z",
+          "actorId": "usr_coord_grace",
+          "note": "Assigned Plumb & Level Handyman",
+          "meta": {
+            "vendorId": "ven_plumblevel"
+          }
+        },
+        {
+          "id": "evt_054",
+          "type": "scheduled",
+          "at": "2026-10-10T19:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "triaged",
+          "toStatus": "scheduled",
+          "meta": {
+            "visitWindow": {
+              "start": "2026-10-17T14:00:00Z",
+              "end": "2026-10-17T16:00:00Z"
+            }
+          }
+        },
+        {
+          "id": "evt_055",
+          "type": "started",
+          "at": "2026-10-17T14:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "scheduled",
+          "toStatus": "in_progress"
+        },
+        {
+          "id": "evt_056",
+          "type": "note",
+          "at": "2026-10-17T16:15:00Z",
+          "actorId": "usr_coord_grace",
+          "note": "Original sash pulleys; vendor sourcing matching cord."
+        }
+      ]
+    },
+    {
+      "id": "req_011",
+      "number": "KW-1011",
+      "buildingId": "bld_linden",
+      "unitId": "unit_lin_12f",
+      "residentId": "usr_res_priya",
+      "coordinatorId": "usr_coord_theo",
+      "vendorId": "ven_northwind",
+      "category": "heating_cooling",
+      "urgency": "normal",
+      "status": "resolved",
+      "title": "Bedroom floor heating zone stays cold",
+      "description": "The thermostat for the bedroom zone is set to 70 but the floor stays cold.",
+      "location": "bedroom",
+      "preferredWindows": [
+        {
+          "date": "2026-10-14",
+          "slot": "morning"
+        },
+        {
+          "date": "2026-10-15",
+          "slot": "afternoon"
+        }
+      ],
+      "permissionToEnter": true,
+      "entryNotes": "Use a one-time code.",
+      "visitWindow": {
+        "start": "2026-10-15T18:00:00Z",
+        "end": "2026-10-15T20:00:00Z"
+      },
+      "createdAt": "2026-10-13T13:00:00Z",
+      "updatedAt": "2026-10-15T20:00:00Z",
+      "resolvedAt": "2026-10-15T20:00:00Z",
+      "timeline": [
+        {
+          "id": "evt_057",
+          "type": "created",
+          "at": "2026-10-13T13:00:00Z",
+          "actorId": "usr_res_priya",
+          "fromStatus": null,
+          "toStatus": "new"
+        },
+        {
+          "id": "evt_058",
+          "type": "triaged",
+          "at": "2026-10-13T17:00:00Z",
+          "actorId": "usr_coord_theo",
+          "fromStatus": "new",
+          "toStatus": "triaged"
+        },
+        {
+          "id": "evt_059",
+          "type": "vendor_assigned",
+          "at": "2026-10-13T17:30:00Z",
+          "actorId": "usr_coord_theo",
+          "note": "Assigned Northwind Heating & Air",
+          "meta": {
+            "vendorId": "ven_northwind"
+          }
+        },
+        {
+          "id": "evt_060",
+          "type": "scheduled",
+          "at": "2026-10-13T18:00:00Z",
+          "actorId": "usr_coord_theo",
+          "fromStatus": "triaged",
+          "toStatus": "scheduled",
+          "meta": {
+            "visitWindow": {
+              "start": "2026-10-15T18:00:00Z",
+              "end": "2026-10-15T20:00:00Z"
+            }
+          }
+        },
+        {
+          "id": "evt_061",
+          "type": "started",
+          "at": "2026-10-15T18:00:00Z",
+          "actorId": "usr_coord_theo",
+          "fromStatus": "scheduled",
+          "toStatus": "in_progress"
+        },
+        {
+          "id": "evt_062",
+          "type": "resolved",
+          "at": "2026-10-15T20:00:00Z",
+          "actorId": "usr_coord_theo",
+          "fromStatus": "in_progress",
+          "toStatus": "resolved",
+          "note": "Re-seated a loose zone valve actuator; floor at temperature within an hour."
+        }
+      ]
+    },
+    {
+      "id": "req_012",
+      "number": "KW-1012",
+      "buildingId": "bld_harbor",
+      "unitId": "unit_hvl_4b",
+      "residentId": "usr_res_amara",
+      "coordinatorId": "usr_coord_grace",
+      "vendorId": null,
+      "category": "pest",
+      "urgency": "low",
+      "status": "triaged",
+      "title": "Silverfish in the bathroom",
+      "description": "Seeing a few silverfish near the bathtub most evenings.",
+      "location": "bathroom",
+      "preferredWindows": [
+        {
+          "date": "2026-10-14",
+          "slot": "afternoon"
+        }
+      ],
+      "permissionToEnter": true,
+      "entryNotes": "Dog will be crated.",
+      "visitWindow": null,
+      "createdAt": "2026-10-13T14:00:00Z",
+      "updatedAt": "2026-10-14T12:30:00Z",
+      "resolvedAt": null,
+      "timeline": [
+        {
+          "id": "evt_063",
+          "type": "created",
+          "at": "2026-10-13T14:00:00Z",
+          "actorId": "usr_res_amara",
+          "fromStatus": null,
+          "toStatus": "new"
+        },
+        {
+          "id": "evt_064",
+          "type": "triaged",
+          "at": "2026-10-14T12:30:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "new",
+          "toStatus": "triaged"
+        }
+      ]
+    },
+    {
+      "id": "req_013",
+      "number": "KW-1013",
+      "buildingId": "bld_linden",
+      "unitId": "unit_lin_12f",
+      "residentId": "usr_res_priya",
+      "coordinatorId": "usr_coord_theo",
+      "vendorId": "ven_fernhill",
+      "category": "pest",
+      "urgency": "low",
+      "status": "scheduled",
+      "title": "Ants along the balcony door track",
+      "description": "A line of small ants comes in along the balcony door track every afternoon.",
+      "location": "balcony",
+      "preferredWindows": [
+        {
+          "date": "2026-10-15",
+          "slot": "evening"
+        },
+        {
+          "date": "2026-10-16",
+          "slot": "morning"
+        }
+      ],
+      "permissionToEnter": true,
+      "entryNotes": "Use a one-time code.",
+      "visitWindow": {
+        "start": "2026-10-21T17:00:00Z",
+        "end": "2026-10-21T19:00:00Z"
+      },
+      "createdAt": "2026-10-14T16:00:00Z",
+      "updatedAt": "2026-10-15T13:00:00Z",
+      "resolvedAt": null,
+      "timeline": [
+        {
+          "id": "evt_065",
+          "type": "created",
+          "at": "2026-10-14T16:00:00Z",
+          "actorId": "usr_res_priya",
+          "fromStatus": null,
+          "toStatus": "new"
+        },
+        {
+          "id": "evt_066",
+          "type": "triaged",
+          "at": "2026-10-15T12:00:00Z",
+          "actorId": "usr_coord_theo",
+          "fromStatus": "new",
+          "toStatus": "triaged"
+        },
+        {
+          "id": "evt_067",
+          "type": "vendor_assigned",
+          "at": "2026-10-15T12:30:00Z",
+          "actorId": "usr_coord_theo",
+          "note": "Assigned Fernhill Pest Care",
+          "meta": {
+            "vendorId": "ven_fernhill"
+          }
+        },
+        {
+          "id": "evt_068",
+          "type": "scheduled",
+          "at": "2026-10-15T13:00:00Z",
+          "actorId": "usr_coord_theo",
+          "fromStatus": "triaged",
+          "toStatus": "scheduled",
+          "meta": {
+            "visitWindow": {
+              "start": "2026-10-21T17:00:00Z",
+              "end": "2026-10-21T19:00:00Z"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "req_014",
+      "number": "KW-1014",
+      "buildingId": "bld_harbor",
+      "unitId": "unit_hvl_7a",
+      "residentId": "usr_res_diego",
+      "coordinatorId": "usr_coord_grace",
+      "vendorId": "ven_ironbark",
+      "category": "doors_locks",
+      "urgency": "high",
+      "status": "triaged",
+      "title": "Fob not opening the garage gate",
+      "description": "My key fob stopped opening the P1 garage gate; the lobby door still works.",
+      "location": "other",
+      "preferredWindows": [
+        {
+          "date": "2026-10-16",
+          "slot": "morning"
+        }
+      ],
+      "permissionToEnter": false,
+      "entryNotes": null,
+      "visitWindow": null,
+      "createdAt": "2026-10-15T12:00:00Z",
+      "updatedAt": "2026-10-15T14:00:00Z",
+      "resolvedAt": null,
+      "timeline": [
+        {
+          "id": "evt_069",
+          "type": "created",
+          "at": "2026-10-15T12:00:00Z",
+          "actorId": "usr_res_diego",
+          "fromStatus": null,
+          "toStatus": "new"
+        },
+        {
+          "id": "evt_070",
+          "type": "triaged",
+          "at": "2026-10-15T13:30:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "new",
+          "toStatus": "triaged"
+        },
+        {
+          "id": "evt_071",
+          "type": "vendor_assigned",
+          "at": "2026-10-15T14:00:00Z",
+          "actorId": "usr_coord_grace",
+          "note": "Assigned Ironbark Lock & Access",
+          "meta": {
+            "vendorId": "ven_ironbark"
+          }
+        }
+      ]
+    },
+    {
+      "id": "req_015",
+      "number": "KW-1015",
+      "buildingId": "bld_linden",
+      "unitId": "unit_lin_5d",
+      "residentId": "usr_res_jonah",
+      "coordinatorId": "usr_coord_theo",
+      "vendorId": "ven_brightline",
+      "category": "electrical",
+      "urgency": "normal",
+      "status": "in_progress",
+      "title": "Under-cabinet lights not turning on",
+      "description": "The kitchen under-cabinet lights stopped working. The switch clicks but nothing happens.",
+      "location": "kitchen",
+      "preferredWindows": [
+        {
+          "date": "2026-10-16",
+          "slot": "afternoon"
+        },
+        {
+          "date": "2026-10-17",
+          "slot": "evening"
+        }
+      ],
+      "permissionToEnter": true,
+      "entryNotes": "Use a one-time code; please keep the door closed (cat).",
+      "visitWindow": {
+        "start": "2026-10-18T17:00:00Z",
+        "end": "2026-10-18T19:00:00Z"
+      },
+      "createdAt": "2026-10-15T19:00:00Z",
+      "updatedAt": "2026-10-18T19:15:00Z",
+      "resolvedAt": null,
+      "timeline": [
+        {
+          "id": "evt_072",
+          "type": "created",
+          "at": "2026-10-15T19:00:00Z",
+          "actorId": "usr_res_jonah",
+          "fromStatus": null,
+          "toStatus": "new"
+        },
+        {
+          "id": "evt_073",
+          "type": "triaged",
+          "at": "2026-10-15T23:00:00Z",
+          "actorId": "usr_coord_theo",
+          "fromStatus": "new",
+          "toStatus": "triaged"
+        },
+        {
+          "id": "evt_074",
+          "type": "vendor_assigned",
+          "at": "2026-10-15T23:30:00Z",
+          "actorId": "usr_coord_theo",
+          "note": "Assigned Brightline Electric",
+          "meta": {
+            "vendorId": "ven_brightline"
+          }
+        },
+        {
+          "id": "evt_075",
+          "type": "scheduled",
+          "at": "2026-10-16T00:00:00Z",
+          "actorId": "usr_coord_theo",
+          "fromStatus": "triaged",
+          "toStatus": "scheduled",
+          "meta": {
+            "visitWindow": {
+              "start": "2026-10-18T17:00:00Z",
+              "end": "2026-10-18T19:00:00Z"
+            }
+          }
+        },
+        {
+          "id": "evt_076",
+          "type": "started",
+          "at": "2026-10-18T17:00:00Z",
+          "actorId": "usr_coord_theo",
+          "fromStatus": "scheduled",
+          "toStatus": "in_progress"
+        },
+        {
+          "id": "evt_077",
+          "type": "note",
+          "at": "2026-10-18T19:15:00Z",
+          "actorId": "usr_coord_theo",
+          "note": "Failed LED driver found. Replacement part ordered, arriving Wednesday."
+        }
+      ]
+    },
+    {
+      "id": "req_016",
+      "number": "KW-1016",
+      "buildingId": "bld_maple",
+      "unitId": "unit_mpc_2c",
+      "residentId": "usr_res_meilin",
+      "coordinatorId": "usr_coord_grace",
+      "vendorId": "ven_brightline",
+      "category": "electrical",
+      "urgency": "high",
+      "status": "resolved",
+      "title": "Bathroom light flickers and buzzes",
+      "description": "The ceiling light flickers and makes a buzzing sound, sometimes with a faint burning smell.",
+      "location": "bathroom",
+      "preferredWindows": [
+        {
+          "date": "2026-10-16",
+          "slot": "evening"
+        }
+      ],
+      "permissionToEnter": false,
+      "entryNotes": null,
+      "visitWindow": {
+        "start": "2026-10-16T14:00:00Z",
+        "end": "2026-10-16T16:00:00Z"
+      },
+      "createdAt": "2026-10-15T22:00:00Z",
+      "updatedAt": "2026-10-16T15:00:00Z",
+      "resolvedAt": "2026-10-16T15:00:00Z",
+      "timeline": [
+        {
+          "id": "evt_078",
+          "type": "created",
+          "at": "2026-10-15T22:00:00Z",
+          "actorId": "usr_res_meilin",
+          "fromStatus": null,
+          "toStatus": "new"
+        },
+        {
+          "id": "evt_079",
+          "type": "triaged",
+          "at": "2026-10-16T12:30:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "new",
+          "toStatus": "triaged"
+        },
+        {
+          "id": "evt_080",
+          "type": "vendor_assigned",
+          "at": "2026-10-16T13:00:00Z",
+          "actorId": "usr_coord_grace",
+          "note": "Assigned Brightline Electric",
+          "meta": {
+            "vendorId": "ven_brightline"
+          }
+        },
+        {
+          "id": "evt_081",
+          "type": "scheduled",
+          "at": "2026-10-16T13:30:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "triaged",
+          "toStatus": "scheduled",
+          "meta": {
+            "visitWindow": {
+              "start": "2026-10-16T14:00:00Z",
+              "end": "2026-10-16T16:00:00Z"
+            }
+          }
+        },
+        {
+          "id": "evt_082",
+          "type": "started",
+          "at": "2026-10-16T14:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "scheduled",
+          "toStatus": "in_progress"
+        },
+        {
+          "id": "evt_083",
+          "type": "resolved",
+          "at": "2026-10-16T15:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "in_progress",
+          "toStatus": "resolved",
+          "note": "Replaced failing fixture and loose neutral connection."
+        }
+      ]
+    },
+    {
+      "id": "req_017",
+      "number": "KW-1017",
+      "buildingId": "bld_harbor",
+      "unitId": "unit_hvl_7a",
+      "residentId": "usr_res_diego",
+      "coordinatorId": "usr_coord_grace",
+      "vendorId": "ven_tidewater",
+      "category": "plumbing",
+      "urgency": "high",
+      "status": "in_progress",
+      "title": "Shower valve dripping constantly",
+      "description": "The shower drips steadily even with the handle fully off. It's loud at night.",
+      "location": "bathroom",
+      "preferredWindows": [
+        {
+          "date": "2026-10-16",
+          "slot": "morning"
+        },
+        {
+          "date": "2026-10-17",
+          "slot": "afternoon"
+        }
+      ],
+      "permissionToEnter": true,
+      "entryNotes": null,
+      "visitWindow": {
+        "start": "2026-10-19T12:00:00Z",
+        "end": "2026-10-19T14:00:00Z"
+      },
+      "createdAt": "2026-10-16T00:00:00Z",
+      "updatedAt": "2026-10-19T12:00:00Z",
+      "resolvedAt": null,
+      "timeline": [
+        {
+          "id": "evt_084",
+          "type": "created",
+          "at": "2026-10-16T00:00:00Z",
+          "actorId": "usr_res_diego",
+          "fromStatus": null,
+          "toStatus": "new"
+        },
+        {
+          "id": "evt_085",
+          "type": "triaged",
+          "at": "2026-10-16T12:30:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "new",
+          "toStatus": "triaged"
+        },
+        {
+          "id": "evt_086",
+          "type": "vendor_assigned",
+          "at": "2026-10-16T13:00:00Z",
+          "actorId": "usr_coord_grace",
+          "note": "Assigned Tidewater Plumbing Co.",
+          "meta": {
+            "vendorId": "ven_tidewater"
+          }
+        },
+        {
+          "id": "evt_087",
+          "type": "scheduled",
+          "at": "2026-10-16T13:30:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "triaged",
+          "toStatus": "scheduled",
+          "meta": {
+            "visitWindow": {
+              "start": "2026-10-19T12:00:00Z",
+              "end": "2026-10-19T14:00:00Z"
+            }
+          }
+        },
+        {
+          "id": "evt_088",
+          "type": "started",
+          "at": "2026-10-19T12:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "scheduled",
+          "toStatus": "in_progress"
+        }
+      ]
+    },
+    {
+      "id": "req_018",
+      "number": "KW-1018",
+      "buildingId": "bld_maple",
+      "unitId": "unit_mpc_1a",
+      "residentId": "usr_res_rashid",
+      "coordinatorId": "usr_coord_grace",
+      "vendorId": "ven_ironbark",
+      "category": "doors_locks",
+      "urgency": "normal",
+      "status": "scheduled",
+      "title": "Front door deadbolt sticks",
+      "description": "The deadbolt takes a lot of force to turn and the key feels like it might snap.",
+      "location": "entry",
+      "preferredWindows": [
+        {
+          "date": "2026-10-17",
+          "slot": "afternoon"
+        }
+      ],
+      "permissionToEnter": false,
+      "entryNotes": null,
+      "visitWindow": {
+        "start": "2026-10-20T17:00:00Z",
+        "end": "2026-10-20T19:00:00Z"
+      },
+      "createdAt": "2026-10-16T13:00:00Z",
+      "updatedAt": "2026-10-16T18:00:00Z",
+      "resolvedAt": null,
+      "timeline": [
+        {
+          "id": "evt_089",
+          "type": "created",
+          "at": "2026-10-16T13:00:00Z",
+          "actorId": "usr_res_rashid",
+          "fromStatus": null,
+          "toStatus": "new"
+        },
+        {
+          "id": "evt_090",
+          "type": "triaged",
+          "at": "2026-10-16T17:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "new",
+          "toStatus": "triaged"
+        },
+        {
+          "id": "evt_091",
+          "type": "vendor_assigned",
+          "at": "2026-10-16T17:30:00Z",
+          "actorId": "usr_coord_grace",
+          "note": "Assigned Ironbark Lock & Access",
+          "meta": {
+            "vendorId": "ven_ironbark"
+          }
+        },
+        {
+          "id": "evt_092",
+          "type": "scheduled",
+          "at": "2026-10-16T18:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "triaged",
+          "toStatus": "scheduled",
+          "meta": {
+            "visitWindow": {
+              "start": "2026-10-20T17:00:00Z",
+              "end": "2026-10-20T19:00:00Z"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "req_019",
+      "number": "KW-1019",
+      "buildingId": "bld_linden",
+      "unitId": "unit_lin_12f",
+      "residentId": "usr_res_priya",
+      "coordinatorId": "usr_coord_theo",
+      "vendorId": null,
+      "category": "appliance",
+      "urgency": "low",
+      "status": "triaged",
+      "title": "Fridge ice maker not making ice",
+      "description": "The ice maker stopped producing ice; water dispenser still works.",
+      "location": "kitchen",
+      "preferredWindows": [
+        {
+          "date": "2026-10-17",
+          "slot": "evening"
+        },
+        {
+          "date": "2026-10-18",
+          "slot": "morning"
+        }
+      ],
+      "permissionToEnter": true,
+      "entryNotes": "Use a one-time code.",
+      "visitWindow": null,
+      "createdAt": "2026-10-16T15:00:00Z",
+      "updatedAt": "2026-10-17T12:30:00Z",
+      "resolvedAt": null,
+      "timeline": [
+        {
+          "id": "evt_093",
+          "type": "created",
+          "at": "2026-10-16T15:00:00Z",
+          "actorId": "usr_res_priya",
+          "fromStatus": null,
+          "toStatus": "new"
+        },
+        {
+          "id": "evt_094",
+          "type": "triaged",
+          "at": "2026-10-17T12:30:00Z",
+          "actorId": "usr_coord_theo",
+          "fromStatus": "new",
+          "toStatus": "triaged"
+        }
+      ]
+    },
+    {
+      "id": "req_020",
+      "number": "KW-1020",
+      "buildingId": "bld_maple",
+      "unitId": "unit_mpc_1a",
+      "residentId": "usr_res_rashid",
+      "coordinatorId": "usr_coord_grace",
+      "vendorId": "ven_northwind",
+      "category": "heating_cooling",
+      "urgency": "normal",
+      "status": "in_progress",
+      "title": "Radiator banging when heat comes on",
+      "description": "Loud banging from the living room radiator for about ten minutes every morning.",
+      "location": "living_room",
+      "preferredWindows": [
+        {
+          "date": "2026-10-18",
+          "slot": "morning"
+        }
+      ],
+      "permissionToEnter": true,
+      "entryNotes": null,
+      "visitWindow": {
+        "start": "2026-10-19T13:00:00Z",
+        "end": "2026-10-19T15:00:00Z"
+      },
+      "createdAt": "2026-10-17T12:00:00Z",
+      "updatedAt": "2026-10-19T13:00:00Z",
+      "resolvedAt": null,
+      "timeline": [
+        {
+          "id": "evt_095",
+          "type": "created",
+          "at": "2026-10-17T12:00:00Z",
+          "actorId": "usr_res_rashid",
+          "fromStatus": null,
+          "toStatus": "new"
+        },
+        {
+          "id": "evt_096",
+          "type": "triaged",
+          "at": "2026-10-17T16:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "new",
+          "toStatus": "triaged"
+        },
+        {
+          "id": "evt_097",
+          "type": "vendor_assigned",
+          "at": "2026-10-17T16:30:00Z",
+          "actorId": "usr_coord_grace",
+          "note": "Assigned Northwind Heating & Air",
+          "meta": {
+            "vendorId": "ven_northwind"
+          }
+        },
+        {
+          "id": "evt_098",
+          "type": "scheduled",
+          "at": "2026-10-17T17:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "triaged",
+          "toStatus": "scheduled",
+          "meta": {
+            "visitWindow": {
+              "start": "2026-10-19T13:00:00Z",
+              "end": "2026-10-19T15:00:00Z"
+            }
+          }
+        },
+        {
+          "id": "evt_099",
+          "type": "started",
+          "at": "2026-10-19T13:00:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "scheduled",
+          "toStatus": "in_progress"
+        }
+      ]
+    },
+    {
+      "id": "req_021",
+      "number": "KW-1021",
+      "buildingId": "bld_linden",
+      "unitId": "unit_lin_12f",
+      "residentId": "usr_res_priya",
+      "coordinatorId": "usr_coord_theo",
+      "vendorId": null,
+      "category": "electrical",
+      "urgency": "low",
+      "status": "new",
+      "title": "Balcony light fixture loose",
+      "description": "The balcony wall light wobbles; the cover seems to have come loose from the wall.",
+      "location": "balcony",
+      "preferredWindows": [
+        {
+          "date": "2026-10-18",
+          "slot": "afternoon"
+        },
+        {
+          "date": "2026-10-19",
+          "slot": "evening"
+        }
+      ],
+      "permissionToEnter": true,
+      "entryNotes": "Use a one-time code.",
+      "visitWindow": null,
+      "createdAt": "2026-10-17T13:00:00Z",
+      "updatedAt": "2026-10-17T13:00:00Z",
+      "resolvedAt": null,
+      "timeline": [
+        {
+          "id": "evt_100",
+          "type": "created",
+          "at": "2026-10-17T13:00:00Z",
+          "actorId": "usr_res_priya",
+          "fromStatus": null,
+          "toStatus": "new"
+        }
+      ]
+    },
+    {
+      "id": "req_022",
+      "number": "KW-1022",
+      "buildingId": "bld_maple",
+      "unitId": "unit_mpc_2c",
+      "residentId": "usr_res_meilin",
+      "coordinatorId": "usr_coord_grace",
+      "vendorId": "ven_tidewater",
+      "category": "plumbing",
+      "urgency": "normal",
+      "status": "triaged",
+      "title": "Bathtub faucet won't fully shut off",
+      "description": "A thin stream keeps running from the tub faucet unless I force the handle.",
+      "location": "bathroom",
+      "preferredWindows": [
+        {
+          "date": "2026-10-18",
+          "slot": "evening"
+        }
+      ],
+      "permissionToEnter": true,
+      "entryNotes": null,
+      "visitWindow": null,
+      "createdAt": "2026-10-17T20:00:00Z",
+      "updatedAt": "2026-10-18T13:00:00Z",
+      "resolvedAt": null,
+      "timeline": [
+        {
+          "id": "evt_101",
+          "type": "created",
+          "at": "2026-10-17T20:00:00Z",
+          "actorId": "usr_res_meilin",
+          "fromStatus": null,
+          "toStatus": "new"
+        },
+        {
+          "id": "evt_102",
+          "type": "triaged",
+          "at": "2026-10-18T12:30:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "new",
+          "toStatus": "triaged"
+        },
+        {
+          "id": "evt_103",
+          "type": "vendor_assigned",
+          "at": "2026-10-18T13:00:00Z",
+          "actorId": "usr_coord_grace",
+          "note": "Assigned Tidewater Plumbing Co.",
+          "meta": {
+            "vendorId": "ven_tidewater"
+          }
+        }
+      ]
+    },
+    {
+      "id": "req_023",
+      "number": "KW-1023",
+      "buildingId": "bld_harbor",
+      "unitId": "unit_hvl_4b",
+      "residentId": "usr_res_amara",
+      "coordinatorId": "usr_coord_grace",
+      "vendorId": "ven_corner",
+      "category": "appliance",
+      "urgency": "normal",
+      "status": "scheduled",
+      "title": "Dishwasher leaves dishes wet and cloudy",
+      "description": "Dishwasher runs the full cycle but dishes come out wet with a cloudy film.",
+      "location": "kitchen",
+      "preferredWindows": [
+        {
+          "date": "2026-10-18",
+          "slot": "morning"
+        },
+        {
+          "date": "2026-10-19",
+          "slot": "afternoon"
+        }
+      ],
+      "permissionToEnter": true,
+      "entryNotes": "Greyhound named Pilot will be in the bedroom.",
+      "visitWindow": {
+        "start": "2026-10-20T13:00:00Z",
+        "end": "2026-10-20T15:00:00Z"
+      },
+      "createdAt": "2026-10-18T00:00:00Z",
+      "updatedAt": "2026-10-18T13:30:00Z",
+      "resolvedAt": null,
+      "timeline": [
+        {
+          "id": "evt_104",
+          "type": "created",
+          "at": "2026-10-18T00:00:00Z",
+          "actorId": "usr_res_amara",
+          "fromStatus": null,
+          "toStatus": "new"
+        },
+        {
+          "id": "evt_105",
+          "type": "triaged",
+          "at": "2026-10-18T12:30:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "new",
+          "toStatus": "triaged"
+        },
+        {
+          "id": "evt_106",
+          "type": "vendor_assigned",
+          "at": "2026-10-18T13:00:00Z",
+          "actorId": "usr_coord_grace",
+          "note": "Assigned Corner Appliance Repair",
+          "meta": {
+            "vendorId": "ven_corner"
+          }
+        },
+        {
+          "id": "evt_107",
+          "type": "scheduled",
+          "at": "2026-10-18T13:30:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "triaged",
+          "toStatus": "scheduled",
+          "meta": {
+            "visitWindow": {
+              "start": "2026-10-20T13:00:00Z",
+              "end": "2026-10-20T15:00:00Z"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "req_024",
+      "number": "KW-1024",
+      "buildingId": "bld_linden",
+      "unitId": "unit_lin_5d",
+      "residentId": "usr_res_jonah",
+      "coordinatorId": "usr_coord_theo",
+      "vendorId": "ven_tidewater",
+      "category": "plumbing",
+      "urgency": "high",
+      "status": "scheduled",
+      "title": "Toilet keeps running",
+      "description": "The toilet keeps running after every flush unless I jiggle the handle.",
+      "location": "bathroom",
+      "preferredWindows": [
+        {
+          "date": "2026-10-19",
+          "slot": "afternoon"
+        }
+      ],
+      "permissionToEnter": true,
+      "entryNotes": "Use a one-time code; please keep the door closed (cat).",
+      "visitWindow": {
+        "start": "2026-10-19T20:00:00Z",
+        "end": "2026-10-19T22:00:00Z"
+      },
+      "createdAt": "2026-10-18T11:00:00Z",
+      "updatedAt": "2026-10-18T13:30:00Z",
+      "resolvedAt": null,
+      "timeline": [
+        {
+          "id": "evt_108",
+          "type": "created",
+          "at": "2026-10-18T11:00:00Z",
+          "actorId": "usr_res_jonah",
+          "fromStatus": null,
+          "toStatus": "new"
+        },
+        {
+          "id": "evt_109",
+          "type": "triaged",
+          "at": "2026-10-18T12:30:00Z",
+          "actorId": "usr_coord_theo",
+          "fromStatus": "new",
+          "toStatus": "triaged"
+        },
+        {
+          "id": "evt_110",
+          "type": "vendor_assigned",
+          "at": "2026-10-18T13:00:00Z",
+          "actorId": "usr_coord_theo",
+          "note": "Assigned Tidewater Plumbing Co.",
+          "meta": {
+            "vendorId": "ven_tidewater"
+          }
+        },
+        {
+          "id": "evt_111",
+          "type": "scheduled",
+          "at": "2026-10-18T13:30:00Z",
+          "actorId": "usr_coord_theo",
+          "fromStatus": "triaged",
+          "toStatus": "scheduled",
+          "meta": {
+            "visitWindow": {
+              "start": "2026-10-19T20:00:00Z",
+              "end": "2026-10-19T22:00:00Z"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "req_025",
+      "number": "KW-1025",
+      "buildingId": "bld_maple",
+      "unitId": "unit_mpc_1a",
+      "residentId": "usr_res_rashid",
+      "coordinatorId": "usr_coord_grace",
+      "vendorId": null,
+      "category": "appliance",
+      "urgency": "normal",
+      "status": "new",
+      "title": "Oven runs about 50 degrees hot",
+      "description": "Oven set to 350°F measures about 400°F with an oven thermometer.",
+      "location": "kitchen",
+      "preferredWindows": [
+        {
+          "date": "2026-10-19",
+          "slot": "evening"
+        },
+        {
+          "date": "2026-10-20",
+          "slot": "morning"
+        }
+      ],
+      "permissionToEnter": true,
+      "entryNotes": null,
+      "visitWindow": null,
+      "createdAt": "2026-10-18T14:00:00Z",
+      "updatedAt": "2026-10-18T14:00:00Z",
+      "resolvedAt": null,
+      "timeline": [
+        {
+          "id": "evt_112",
+          "type": "created",
+          "at": "2026-10-18T14:00:00Z",
+          "actorId": "usr_res_rashid",
+          "fromStatus": null,
+          "toStatus": "new"
+        }
+      ]
+    },
+    {
+      "id": "req_026",
+      "number": "KW-1026",
+      "buildingId": "bld_linden",
+      "unitId": "unit_lin_5d",
+      "residentId": "usr_res_jonah",
+      "coordinatorId": "usr_coord_theo",
+      "vendorId": null,
+      "category": "doors_locks",
+      "urgency": "normal",
+      "status": "new",
+      "title": "Guest codes not working on keypad",
+      "description": "Guest codes I create in the app show as active but the keypad rejects them.",
+      "location": "entry",
+      "preferredWindows": [
+        {
+          "date": "2026-10-19",
+          "slot": "morning"
+        }
+      ],
+      "permissionToEnter": false,
+      "entryNotes": null,
+      "visitWindow": null,
+      "createdAt": "2026-10-18T18:00:00Z",
+      "updatedAt": "2026-10-18T18:00:00Z",
+      "resolvedAt": null,
+      "timeline": [
+        {
+          "id": "evt_113",
+          "type": "created",
+          "at": "2026-10-18T18:00:00Z",
+          "actorId": "usr_res_jonah",
+          "fromStatus": null,
+          "toStatus": "new"
+        }
+      ]
+    },
+    {
+      "id": "req_027",
+      "number": "KW-1027",
+      "buildingId": "bld_harbor",
+      "unitId": "unit_hvl_7a",
+      "residentId": "usr_res_diego",
+      "coordinatorId": "usr_coord_grace",
+      "vendorId": null,
+      "category": "general",
+      "urgency": "low",
+      "status": "new",
+      "title": "Gulls nesting on the balcony ledge",
+      "description": "A pair of gulls keeps building a nest on the ledge above my balcony door.",
+      "location": "balcony",
+      "preferredWindows": [
+        {
+          "date": "2026-10-19",
+          "slot": "afternoon"
+        },
+        {
+          "date": "2026-10-20",
+          "slot": "evening"
+        }
+      ],
+      "permissionToEnter": true,
+      "entryNotes": null,
+      "visitWindow": null,
+      "createdAt": "2026-10-18T20:00:00Z",
+      "updatedAt": "2026-10-18T20:00:00Z",
+      "resolvedAt": null,
+      "timeline": [
+        {
+          "id": "evt_114",
+          "type": "created",
+          "at": "2026-10-18T20:00:00Z",
+          "actorId": "usr_res_diego",
+          "fromStatus": null,
+          "toStatus": "new"
+        }
+      ]
+    },
+    {
+      "id": "req_028",
+      "number": "KW-1028",
+      "buildingId": "bld_harbor",
+      "unitId": "unit_hvl_7a",
+      "residentId": "usr_res_diego",
+      "coordinatorId": "usr_coord_grace",
+      "vendorId": "ven_northwind",
+      "category": "heating_cooling",
+      "urgency": "normal",
+      "status": "scheduled",
+      "title": "Heat pump making a rattling noise",
+      "description": "The heat pump in the hall closet rattles when it starts up.",
+      "location": "other",
+      "preferredWindows": [
+        {
+          "date": "2026-10-19",
+          "slot": "evening"
+        }
+      ],
+      "permissionToEnter": true,
+      "entryNotes": null,
+      "visitWindow": {
+        "start": "2026-10-20T19:00:00Z",
+        "end": "2026-10-20T21:00:00Z"
+      },
+      "createdAt": "2026-10-19T01:00:00Z",
+      "updatedAt": "2026-10-19T13:30:00Z",
+      "resolvedAt": null,
+      "timeline": [
+        {
+          "id": "evt_115",
+          "type": "created",
+          "at": "2026-10-19T01:00:00Z",
+          "actorId": "usr_res_diego",
+          "fromStatus": null,
+          "toStatus": "new"
+        },
+        {
+          "id": "evt_116",
+          "type": "triaged",
+          "at": "2026-10-19T12:30:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "new",
+          "toStatus": "triaged"
+        },
+        {
+          "id": "evt_117",
+          "type": "vendor_assigned",
+          "at": "2026-10-19T13:00:00Z",
+          "actorId": "usr_coord_grace",
+          "note": "Assigned Northwind Heating & Air",
+          "meta": {
+            "vendorId": "ven_northwind"
+          }
+        },
+        {
+          "id": "evt_118",
+          "type": "scheduled",
+          "at": "2026-10-19T13:30:00Z",
+          "actorId": "usr_coord_grace",
+          "fromStatus": "triaged",
+          "toStatus": "scheduled",
+          "meta": {
+            "visitWindow": {
+              "start": "2026-10-20T19:00:00Z",
+              "end": "2026-10-20T21:00:00Z"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "req_029",
+      "number": "KW-1029",
+      "buildingId": "bld_maple",
+      "unitId": "unit_mpc_2c",
+      "residentId": "usr_res_meilin",
+      "coordinatorId": "usr_coord_grace",
+      "vendorId": null,
+      "category": "heating_cooling",
+      "urgency": "high",
+      "status": "new",
+      "title": "No heat from living room radiator",
+      "description": "The living room radiator is completely cold this morning. The bedroom one is fine.",
+      "location": "living_room",
+      "preferredWindows": [
+        {
+          "date": "2026-10-20",
+          "slot": "morning"
+        },
+        {
+          "date": "2026-10-21",
+          "slot": "afternoon"
+        }
+      ],
+      "permissionToEnter": true,
+      "entryNotes": null,
+      "visitWindow": null,
+      "createdAt": "2026-10-19T09:00:00Z",
+      "updatedAt": "2026-10-19T09:00:00Z",
+      "resolvedAt": null,
+      "timeline": [
+        {
+          "id": "evt_119",
+          "type": "created",
+          "at": "2026-10-19T09:00:00Z",
+          "actorId": "usr_res_meilin",
+          "fromStatus": null,
+          "toStatus": "new"
+        }
+      ]
+    },
+    {
+      "id": "req_030",
+      "number": "KW-1030",
+      "buildingId": "bld_harbor",
+      "unitId": "unit_hvl_4b",
+      "residentId": "usr_res_amara",
+      "coordinatorId": "usr_coord_grace",
+      "vendorId": null,
+      "category": "plumbing",
+      "urgency": "emergency",
+      "status": "new",
+      "title": "Water heater leaking onto the floor",
+      "description": "There's a puddle spreading from under the water heater closet. I've put towels down.",
+      "location": "laundry",
+      "preferredWindows": [],
+      "permissionToEnter": true,
+      "entryNotes": "Dog will be in the bedroom.",
+      "visitWindow": null,
+      "createdAt": "2026-10-19T11:00:00Z",
+      "updatedAt": "2026-10-19T11:00:00Z",
+      "resolvedAt": null,
+      "timeline": [
+        {
+          "id": "evt_120",
+          "type": "created",
+          "at": "2026-10-19T11:00:00Z",
+          "actorId": "usr_res_amara",
+          "fromStatus": null,
+          "toStatus": "new"
+        }
+      ]
+    }
+  ],
+  "threads": [
+    {
+      "id": "thr_001",
+      "requestId": "req_023",
+      "buildingId": "bld_harbor",
+      "residentId": "usr_res_amara",
+      "coordinatorId": "usr_coord_grace",
+      "createdAt": "2026-10-18T00:05:00Z",
+      "lastMessageAt": "2026-10-19T12:45:00Z",
+      "lastReadAt": {
+        "usr_res_amara": "2026-10-18T13:33:00Z",
+        "usr_coord_grace": "2026-10-19T12:45:00Z"
+      }
+    },
+    {
+      "id": "thr_002",
+      "requestId": "req_017",
+      "buildingId": "bld_harbor",
+      "residentId": "usr_res_diego",
+      "coordinatorId": "usr_coord_grace",
+      "createdAt": "2026-10-16T00:04:00Z",
+      "lastMessageAt": "2026-10-19T12:51:00Z",
+      "lastReadAt": {
+        "usr_res_diego": "2026-10-19T12:51:00Z",
+        "usr_coord_grace": "2026-10-19T12:20:00Z"
+      }
+    },
+    {
+      "id": "thr_003",
+      "requestId": "req_018",
+      "buildingId": "bld_maple",
+      "residentId": "usr_res_rashid",
+      "coordinatorId": "usr_coord_grace",
+      "createdAt": "2026-10-16T13:05:00Z",
+      "lastMessageAt": "2026-10-16T16:02:00Z",
+      "lastReadAt": {
+        "usr_res_rashid": "2026-10-16T16:10:00Z",
+        "usr_coord_grace": "2026-10-16T16:02:00Z"
+      }
+    },
+    {
+      "id": "thr_004",
+      "requestId": "req_029",
+      "buildingId": "bld_maple",
+      "residentId": "usr_res_meilin",
+      "coordinatorId": "usr_coord_grace",
+      "createdAt": "2026-10-19T09:03:00Z",
+      "lastMessageAt": "2026-10-19T11:40:00Z",
+      "lastReadAt": {
+        "usr_res_meilin": "2026-10-19T11:40:00Z",
+        "usr_coord_grace": null
+      }
+    },
+    {
+      "id": "thr_005",
+      "requestId": "req_024",
+      "buildingId": "bld_linden",
+      "residentId": "usr_res_jonah",
+      "coordinatorId": "usr_coord_theo",
+      "createdAt": "2026-10-18T11:04:00Z",
+      "lastMessageAt": "2026-10-18T14:06:00Z",
+      "lastReadAt": {
+        "usr_res_jonah": "2026-10-18T14:30:00Z",
+        "usr_coord_theo": "2026-10-18T14:06:00Z"
+      }
+    },
+    {
+      "id": "thr_006",
+      "requestId": "req_015",
+      "buildingId": "bld_linden",
+      "residentId": "usr_res_jonah",
+      "coordinatorId": "usr_coord_theo",
+      "createdAt": "2026-10-18T19:30:00Z",
+      "lastMessageAt": "2026-10-18T20:12:00Z",
+      "lastReadAt": {
+        "usr_res_jonah": "2026-10-18T20:12:00Z",
+        "usr_coord_theo": "2026-10-18T20:12:00Z"
+      }
+    },
+    {
+      "id": "thr_028",
+      "requestId": null,
+      "subject": "Guest parking this weekend",
+      "buildingId": "bld_harbor",
+      "residentId": "usr_res_amara",
+      "coordinatorId": "usr_coord_grace",
+      "createdAt": "2026-10-17T15:10:00Z",
+      "lastMessageAt": "2026-10-17T16:02:00Z",
+      "lastReadAt": {
+        "usr_res_amara": "2026-10-17T16:30:00Z",
+        "usr_coord_grace": "2026-10-17T16:02:00Z"
+      }
+    },
+    {
+      "id": "thr_029",
+      "requestId": null,
+      "subject": "Moving a sofa in on Saturday",
+      "buildingId": "bld_linden",
+      "residentId": "usr_res_priya",
+      "coordinatorId": "usr_coord_theo",
+      "createdAt": "2026-10-16T13:00:00Z",
+      "lastMessageAt": "2026-10-16T14:20:00Z",
+      "lastReadAt": {
+        "usr_res_priya": "2026-10-16T15:00:00Z",
+        "usr_coord_theo": "2026-10-16T14:20:00Z"
+      }
+    }
+  ],
+  "messages": [
+    {
+      "id": "msg_001",
+      "threadId": "thr_001",
+      "authorId": "usr_res_amara",
+      "body": "Hi, the dishwasher runs the full cycle but everything comes out wet and a bit cloudy. It's been like this about a week.",
+      "createdAt": "2026-10-18T00:05:00Z"
+    },
+    {
+      "id": "msg_002",
+      "threadId": "thr_001",
+      "authorId": "usr_coord_grace",
+      "body": "Thanks Amara. I've booked Corner Appliance Repair for Tuesday between 9 and 11 AM. Is there a pet we should let them know about?",
+      "createdAt": "2026-10-18T13:10:00Z"
+    },
+    {
+      "id": "msg_003",
+      "threadId": "thr_001",
+      "authorId": "usr_res_amara",
+      "body": "Yes, a very friendly greyhound named Pilot. I'll keep him in the bedroom.",
+      "createdAt": "2026-10-18T13:32:00Z"
+    },
+    {
+      "id": "msg_004",
+      "threadId": "thr_001",
+      "authorId": "usr_coord_grace",
+      "body": "Perfect, I've added that to the entry notes. The technician will text you 30 minutes before arriving.",
+      "createdAt": "2026-10-19T12:45:00Z"
+    },
+    {
+      "id": "msg_005",
+      "threadId": "thr_002",
+      "authorId": "usr_res_diego",
+      "body": "The shower keeps dripping even with the handle fully off. It's loud at night and I'm worried about the water bill.",
+      "createdAt": "2026-10-16T00:04:00Z"
+    },
+    {
+      "id": "msg_006",
+      "threadId": "thr_002",
+      "authorId": "usr_coord_grace",
+      "body": "Sorry about that, Diego. I've booked Tidewater Plumbing's earliest slot; the time is on the request. Does that work?",
+      "createdAt": "2026-10-17T12:40:00Z"
+    },
+    {
+      "id": "msg_007",
+      "threadId": "thr_002",
+      "authorId": "usr_res_diego",
+      "body": "That works. I'll be at work, so they have permission to enter.",
+      "createdAt": "2026-10-17T13:02:00Z"
+    },
+    {
+      "id": "msg_008",
+      "threadId": "thr_002",
+      "authorId": "usr_coord_grace",
+      "body": "The plumber is on site now. They think it's a worn cartridge and have a replacement in the van.",
+      "createdAt": "2026-10-19T12:20:00Z"
+    },
+    {
+      "id": "msg_009",
+      "threadId": "thr_002",
+      "authorId": "usr_res_diego",
+      "body": "Great, thank you!",
+      "createdAt": "2026-10-19T12:51:00Z"
+    },
+    {
+      "id": "msg_010",
+      "threadId": "thr_003",
+      "authorId": "usr_res_rashid",
+      "body": "The deadbolt on my front door takes a lot of force to turn. I'm afraid the key will snap.",
+      "createdAt": "2026-10-16T13:05:00Z"
+    },
+    {
+      "id": "msg_011",
+      "threadId": "thr_003",
+      "authorId": "usr_coord_grace",
+      "body": "Please don't force it. Ironbark Lock & Access will look at it Tuesday between 1 and 3 PM. Maple Court rules don't allow residents to change locks, so we'll take care of it.",
+      "createdAt": "2026-10-16T15:20:00Z"
+    },
+    {
+      "id": "msg_012",
+      "threadId": "thr_003",
+      "authorId": "usr_res_rashid",
+      "body": "Understood. Should I spray anything in it in the meantime?",
+      "createdAt": "2026-10-16T15:41:00Z"
+    },
+    {
+      "id": "msg_013",
+      "threadId": "thr_003",
+      "authorId": "usr_coord_grace",
+      "body": "Best not to. Some sprays gum up older cylinders. The locksmith will clean and lubricate it.",
+      "createdAt": "2026-10-16T16:02:00Z"
+    },
+    {
+      "id": "msg_014",
+      "threadId": "thr_004",
+      "authorId": "usr_res_meilin",
+      "body": "The living room radiator is completely cold this morning. The bedroom one is fine.",
+      "createdAt": "2026-10-19T09:03:00Z"
+    },
+    {
+      "id": "msg_015",
+      "threadId": "thr_004",
+      "authorId": "usr_res_meilin",
+      "body": "It's about 61°F in here now. Is anyone available today?",
+      "createdAt": "2026-10-19T11:40:00Z"
+    },
+    {
+      "id": "msg_016",
+      "threadId": "thr_005",
+      "authorId": "usr_res_jonah",
+      "body": "The toilet keeps running after every flush unless I jiggle the handle.",
+      "createdAt": "2026-10-18T11:04:00Z"
+    },
+    {
+      "id": "msg_017",
+      "threadId": "thr_005",
+      "authorId": "usr_coord_theo",
+      "body": "Thanks Jonah. Tidewater Plumbing will come tomorrow between 4 and 6 PM. They'll use a one-time door code, so you don't need to be home.",
+      "createdAt": "2026-10-18T13:40:00Z"
+    },
+    {
+      "id": "msg_018",
+      "threadId": "thr_005",
+      "authorId": "usr_res_jonah",
+      "body": "Perfect. Please ask them to keep the door closed, my cat likes to wander.",
+      "createdAt": "2026-10-18T13:58:00Z"
+    },
+    {
+      "id": "msg_019",
+      "threadId": "thr_005",
+      "authorId": "usr_coord_theo",
+      "body": "Noted in the entry instructions.",
+      "createdAt": "2026-10-18T14:06:00Z"
+    },
+    {
+      "id": "msg_020",
+      "threadId": "thr_006",
+      "authorId": "usr_coord_theo",
+      "body": "Update: Brightline found a failed LED driver. The replacement part arrives Wednesday and they'll come back to fit it.",
+      "createdAt": "2026-10-18T19:30:00Z"
+    },
+    {
+      "id": "msg_021",
+      "threadId": "thr_006",
+      "authorId": "usr_res_jonah",
+      "body": "Thanks for the update. The lights over the sink still work, so no rush.",
+      "createdAt": "2026-10-18T20:12:00Z"
+    },
+    {
+      "id": "msg_022",
+      "threadId": "thr_028",
+      "authorId": "usr_res_amara",
+      "body": "Hi Grace, my parents are visiting Saturday and Sunday. Can they use a guest parking spot?",
+      "createdAt": "2026-10-17T15:10:00Z"
+    },
+    {
+      "id": "msg_023",
+      "threadId": "thr_028",
+      "authorId": "usr_coord_grace",
+      "body": "Yes! Guest spots G1 to G4 are first come, first served. Leave a note with your unit on the dashboard.",
+      "createdAt": "2026-10-17T16:02:00Z"
+    },
+    {
+      "id": "msg_024",
+      "threadId": "thr_029",
+      "authorId": "usr_res_priya",
+      "body": "I'm getting a new sofa delivered Saturday morning. Do I need to book the freight elevator?",
+      "createdAt": "2026-10-16T13:00:00Z"
+    },
+    {
+      "id": "msg_025",
+      "threadId": "thr_029",
+      "authorId": "usr_coord_theo",
+      "body": "Please do. I've held the freight elevator for you from 9 to 11 am. The movers need to pad the walls.",
+      "createdAt": "2026-10-16T14:20:00Z"
+    }
+  ],
+  "ruleDocuments": [
+    {
+      "id": "doc_hvl",
+      "buildingId": "bld_harbor",
+      "title": "Harbor View Lofts House Rules & Lease Addendum",
+      "effectiveDate": "2026-01-01",
+      "version": 1
+    },
+    {
+      "id": "doc_mpc",
+      "buildingId": "bld_maple",
+      "title": "Maple Court Resident Handbook",
+      "effectiveDate": "2025-07-01",
+      "version": 1
+    },
+    {
+      "id": "doc_lin",
+      "buildingId": "bld_linden",
+      "title": "The Linden Community Policies",
+      "effectiveDate": "2025-09-15",
+      "version": 1
+    }
+  ],
+  "rulePassages": [
+    {
+      "id": "hvl-quiet-hours",
+      "documentId": "doc_hvl",
+      "buildingId": "bld_harbor",
+      "section": "2.1",
+      "title": "Quiet hours",
+      "text": "Quiet hours are 9:00 PM to 8:00 AM every day. During quiet hours, keep music, TV and voices at a level that cannot be heard in hallways or neighbouring lofts. Lofts have exposed concrete and open ceilings, so sound travels; cover at least 80% of hard floors with rugs. Repeated quiet-hours complaints lead to a written warning, then a $100 fine per incident."
+    },
+    {
+      "id": "hvl-pets",
+      "documentId": "doc_hvl",
+      "buildingId": "bld_harbor",
+      "section": "3.1",
+      "title": "Pets",
+      "text": "Harbor View Lofts is pet-friendly. Each loft may keep up to two dogs or cats, with no breed or weight limit. Register every pet with the management office within 14 days of move-in, including vaccination records. A one-time fee of $300 per pet applies; there is no monthly pet fee."
+    },
+    {
+      "id": "hvl-pet-areas",
+      "documentId": "doc_hvl",
+      "buildingId": "bld_harbor",
+      "section": "3.2",
+      "title": "Pet areas and waste",
+      "text": "Dogs must be leashed in all common areas, including elevators and the lobby. Use the dog-wash station on garage level P1 and the pet relief area in the north courtyard. Pick up after your pet immediately; unattended pet waste is a $50 fine."
+    },
+    {
+      "id": "hvl-guests",
+      "documentId": "doc_hvl",
+      "buildingId": "bld_harbor",
+      "section": "4.1",
+      "title": "Guests and subletting",
+      "text": "Guests may stay up to 14 nights in any 6-month period without approval. Longer stays need a guest registration with the office. Subletting your loft, including short-stay listings, is not permitted."
+    },
+    {
+      "id": "hvl-parking",
+      "documentId": "doc_hvl",
+      "buildingId": "bld_harbor",
+      "section": "5.1",
+      "title": "Parking and bicycles",
+      "text": "Each loft is assigned one garage space on P1 or P2; your space number is on your lease. The garage is for residents only; guests park on the street. Store bicycles in the bike room off the lobby or inside your loft, never in hallways or stairwells."
+    },
+    {
+      "id": "hvl-packages",
+      "documentId": "doc_hvl",
+      "buildingId": "bld_harbor",
+      "section": "6.1",
+      "title": "Packages",
+      "text": "Packages are delivered to the smart lockers in the lobby and you receive a pickup code by email. Collect packages within 3 days; after that they move to the office, open weekdays 9 AM to 5 PM. Perishable deliveries are not held."
+    },
+    {
+      "id": "hvl-moving",
+      "documentId": "doc_hvl",
+      "buildingId": "bld_harbor",
+      "section": "7.1",
+      "title": "Moving in and out",
+      "text": "Book the freight elevator through the office at least 5 days before your move. Moves are allowed Monday to Saturday, 9:00 AM to 6:00 PM, and must finish before quiet hours begin. A refundable $250 elevator deposit is required; staff install wall padding."
+    },
+    {
+      "id": "hvl-painting",
+      "documentId": "doc_hvl",
+      "buildingId": "bld_harbor",
+      "section": "8.1",
+      "title": "Painting and walls",
+      "text": "You may paint interior drywall any colour, but exposed brick, concrete and timber beams must never be painted, drilled or sealed. Use the picture rail or removable hooks to hang art. Return drywall to the original white before you move out, or a repainting charge is deducted from your deposit."
+    },
+    {
+      "id": "hvl-balconies",
+      "documentId": "doc_hvl",
+      "buildingId": "bld_harbor",
+      "section": "9.1",
+      "title": "Balconies",
+      "text": "Balconies may hold outdoor furniture and plants in saucers. Gas or charcoal grills, open flames, and laundry hung over railings are not allowed. Electric grills are permitted. Do not feed gulls or other birds from your balcony."
+    },
+    {
+      "id": "hvl-smoking",
+      "documentId": "doc_hvl",
+      "buildingId": "bld_harbor",
+      "section": "10.1",
+      "title": "Smoking and vaping",
+      "text": "Smoking and vaping of any substance are prohibited inside lofts, on balconies, and within 25 feet of building entrances. The designated smoking area is the bench at the south end of the pier walk."
+    },
+    {
+      "id": "hvl-laundry",
+      "documentId": "doc_hvl",
+      "buildingId": "bld_harbor",
+      "section": "11.1",
+      "title": "Laundry",
+      "text": "Lofts do not have in-unit laundry. The shared laundry room on the 2nd floor is open 7:00 AM to 9:00 PM and closes when quiet hours begin. Pay for machines in the resident app, and remove laundry within 15 minutes of the cycle ending."
+    },
+    {
+      "id": "hvl-emergencies",
+      "documentId": "doc_hvl",
+      "buildingId": "bld_harbor",
+      "section": "12.1",
+      "title": "Emergencies",
+      "text": "For fire, a gas smell or active flooding, leave the area and call 911 first, then call the 24-hour maintenance line at (555) 010-4400 and submit an Emergency request in Keyway. Each loft's main water shutoff is behind the access panel under the kitchen sink."
+    },
+    {
+      "id": "mpc-quiet-hours",
+      "documentId": "doc_mpc",
+      "buildingId": "bld_maple",
+      "section": "1.1",
+      "title": "Quiet hours",
+      "text": "Quiet hours are 10:00 PM to 7:00 AM Sunday to Thursday, and 11:00 PM to 8:00 AM on Friday and Saturday. Floors are original hardwood over plaster, so take off hard-soled shoes indoors where you can and avoid moving furniture late in the evening."
+    },
+    {
+      "id": "mpc-pets",
+      "documentId": "doc_mpc",
+      "buildingId": "bld_maple",
+      "section": "2.1",
+      "title": "Pets",
+      "text": "One pet per home is allowed: either a cat or a dog under 25 lb. Small birds and fish tanks under 20 gallons are also allowed. Reptiles, rodents and exotic animals are not permitted. The office must approve every pet before it moves in, and a $35 monthly pet fee applies."
+    },
+    {
+      "id": "mpc-laundry",
+      "documentId": "doc_mpc",
+      "buildingId": "bld_maple",
+      "section": "3.1",
+      "title": "Laundry and appliances",
+      "text": "Maple Court's plumbing and wiring were not designed for in-unit appliances. Do not install a washing machine, dryer or dishwasher, and do not alter water lines, laundry hookups or dryer vents. Use the basement laundry room, open 6:00 AM to 10:00 PM, which takes coins or cards."
+    },
+    {
+      "id": "mpc-heating",
+      "documentId": "doc_mpc",
+      "buildingId": "bld_maple",
+      "section": "4.1",
+      "title": "Heating and radiators",
+      "text": "The building boiler supplies heat from October 1 to April 30. Radiators can take up to an hour to warm up. Do not paint, cover or bleed radiators yourself; submit a Heating & cooling request instead. Portable space heaters must have an automatic tip-over shutoff and must never run unattended."
+    },
+    {
+      "id": "mpc-alterations",
+      "documentId": "doc_mpc",
+      "buildingId": "bld_maple",
+      "section": "5.1",
+      "title": "Alterations",
+      "text": "Get written approval from the office before any alteration, including replacing light fixtures, mounting shelves heavier than 20 lb, changing locks or removing carpet. Original moulding, doors and built-in cabinets must stay in place. Unapproved alterations are restored at the resident's cost."
+    },
+    {
+      "id": "mpc-painting",
+      "documentId": "doc_mpc",
+      "buildingId": "bld_maple",
+      "section": "5.2",
+      "title": "Painting",
+      "text": "Walls may be painted only in colours from the Maple Court approved palette, available from the office. Some original coats may contain lead, so never sand or scrape existing paint; submit a request for any peeling or chipped paint."
+    },
+    {
+      "id": "mpc-guests",
+      "documentId": "doc_mpc",
+      "buildingId": "bld_maple",
+      "section": "6.1",
+      "title": "Guests",
+      "text": "Overnight guests may stay up to 7 consecutive nights and no more than 30 nights per year. Do not give building keys to guests. Subletting is not permitted."
+    },
+    {
+      "id": "mpc-parking",
+      "documentId": "doc_mpc",
+      "buildingId": "bld_maple",
+      "section": "7.1",
+      "title": "Parking",
+      "text": "The rear lot has 18 unassigned spaces, first come first served, for cars with a Maple Court permit sticker. Visitors may use the 4 marked spaces by the gate for up to 24 hours. Cars without a permit are towed at the owner's expense."
+    },
+    {
+      "id": "mpc-packages",
+      "documentId": "doc_mpc",
+      "buildingId": "bld_maple",
+      "section": "8.1",
+      "title": "Packages",
+      "text": "There is no package room. Carriers leave packages in the locked vestibule by the mailboxes. Maple Court is not responsible for lost or stolen packages, so consider a carrier pickup point for valuable items."
+    },
+    {
+      "id": "mpc-moving",
+      "documentId": "doc_mpc",
+      "buildingId": "bld_maple",
+      "section": "9.1",
+      "title": "Moving in and out",
+      "text": "Moves are allowed Monday to Saturday, 8:00 AM to 8:00 PM. There is no elevator. Tell the office 48 hours before a move so neighbours can be notified, and protect stair railings and walls; damage to common stairwells is charged to the resident."
+    },
+    {
+      "id": "mpc-smoking",
+      "documentId": "doc_mpc",
+      "buildingId": "bld_maple",
+      "section": "10.1",
+      "title": "Smoking",
+      "text": "Maple Court is smoke-free indoors, including homes, hallways and the basement. Smoking is allowed only in the gazebo by the rear lot. Put cigarette ends in the receptacle provided."
+    },
+    {
+      "id": "mpc-emergencies",
+      "documentId": "doc_mpc",
+      "buildingId": "bld_maple",
+      "section": "11.1",
+      "title": "Emergencies",
+      "text": "For fire or a gas smell, leave and call 911. For a burst pipe, or no heat when the temperature inside drops below 55°F, call the 24-hour line at (555) 010-2210. Shutoff valves for each riser are in the basement and only staff may operate them."
+    },
+    {
+      "id": "lin-quiet-hours",
+      "documentId": "doc_lin",
+      "buildingId": "bld_linden",
+      "section": "1.1",
+      "title": "Quiet hours",
+      "text": "Quiet hours are 11:00 PM to 7:00 AM. Homes have acoustic underlayment, but keep amplified speakers and exercise equipment away from shared walls. The rooftop terrace closes at 10:00 PM."
+    },
+    {
+      "id": "lin-smart-locks",
+      "documentId": "doc_lin",
+      "buildingId": "bld_linden",
+      "section": "2.1",
+      "title": "Smart locks and entry",
+      "text": "Every home has a smart lock you open with the resident app or keypad. Never share your personal code. For a guest, cleaner or vendor, create a time-limited guest code in the app. Maintenance staff and vendors use one-time codes logged to your request, so you don't need to be home when you give permission to enter."
+    },
+    {
+      "id": "lin-lockouts",
+      "documentId": "doc_lin",
+      "buildingId": "bld_linden",
+      "section": "2.2",
+      "title": "Lockouts and lock batteries",
+      "text": "If both your phone and keypad code fail, call the front desk (staffed 7 AM to 11 PM) or the 24-hour line. Locks have a backup battery; if the keypad shows a red battery icon, submit a Doors & locks request. Do not remove or replace lock hardware yourself."
+    },
+    {
+      "id": "lin-pets",
+      "documentId": "doc_lin",
+      "buildingId": "bld_linden",
+      "section": "3.1",
+      "title": "Pets",
+      "text": "Up to two pets per home: cats, or dogs under 50 lb. Register pets in the resident app before they move in. A $40 monthly pet fee applies per pet. Use the dog run on level 2; dogs are not allowed on the rooftop terrace."
+    },
+    {
+      "id": "lin-laundry",
+      "documentId": "doc_lin",
+      "buildingId": "bld_linden",
+      "section": "4.1",
+      "title": "In-unit washer-dryer",
+      "text": "Each home has a ventless washer-dryer. Clean the lint filter after every cycle and only run the machine when someone is home. Do not replace or move the unit; submit an Appliance request for any problem."
+    },
+    {
+      "id": "lin-alterations",
+      "documentId": "doc_lin",
+      "buildingId": "bld_linden",
+      "section": "5.1",
+      "title": "Alterations and painting",
+      "text": "You may hang art with small nails. Painting needs approval and must use a colour from the approved palette. Do not mount a TV on a wall that holds the smart-home panel, and never drill into floors or ceilings, which contain radiant heating lines."
+    },
+    {
+      "id": "lin-guests",
+      "documentId": "doc_lin",
+      "buildingId": "bld_linden",
+      "section": "6.1",
+      "title": "Guests",
+      "text": "Guests may stay up to 21 nights in any 6-month period. Give guests a guest code instead of sharing yours. Subletting and short-stay listings are not permitted."
+    },
+    {
+      "id": "lin-parking",
+      "documentId": "doc_lin",
+      "buildingId": "bld_linden",
+      "section": "7.1",
+      "title": "Parking and EV charging",
+      "text": "Garage spaces are leased separately through the office. The six EV charging stations on P1 are shared; unplug and move your car within 30 minutes of a full charge. Overstay fees are billed through the resident app."
+    },
+    {
+      "id": "lin-packages",
+      "documentId": "doc_lin",
+      "buildingId": "bld_linden",
+      "section": "8.1",
+      "title": "Packages",
+      "text": "Packages go to the package room on the ground floor, which you open with the smart-lock app. Refrigerated lockers hold groceries for up to 24 hours. Packages left longer than 7 days are returned to the sender."
+    },
+    {
+      "id": "lin-moving",
+      "documentId": "doc_lin",
+      "buildingId": "bld_linden",
+      "section": "9.1",
+      "title": "Moving in and out",
+      "text": "Reserve the service elevator in the resident app at least 72 hours ahead. Moves are allowed every day from 8:00 AM to 7:00 PM through the loading dock on Linden Rise; the main lobby may not be used for moves."
+    },
+    {
+      "id": "lin-balconies",
+      "documentId": "doc_lin",
+      "buildingId": "bld_linden",
+      "section": "10.1",
+      "title": "Balconies and smoking",
+      "text": "The Linden is fully smoke-free and vape-free, including balconies and the rooftop terrace. Only electric grills are allowed on balconies. Do not store anything above railing height."
+    },
+    {
+      "id": "lin-emergencies",
+      "documentId": "doc_lin",
+      "buildingId": "bld_linden",
+      "section": "11.1",
+      "title": "Emergencies",
+      "text": "For fire, smoke or a gas smell, leave and call 911. For a water leak, close the shutoff valve in your laundry closet, call the 24-hour line at (555) 010-7730, and submit an Emergency request. Leak sensors under sinks also alert staff automatically."
+    }
+  ],
+  "charges": [
+    {
+      "id": "chg_001",
+      "buildingId": "bld_harbor",
+      "unitId": "unit_hvl_4b",
+      "residentId": "usr_res_amara",
+      "kind": "rent",
+      "description": "August rent",
+      "amountCents": 245000,
+      "dueAt": "2026-08-01T04:00:00Z",
+      "createdAt": "2026-07-15T14:00:00Z",
+      "paidAt": "2026-07-28T15:30:00Z",
+      "paymentId": "pay_001",
+      "requestId": null
+    },
+    {
+      "id": "chg_002",
+      "buildingId": "bld_harbor",
+      "unitId": "unit_hvl_4b",
+      "residentId": "usr_res_amara",
+      "kind": "rent",
+      "description": "September rent",
+      "amountCents": 245000,
+      "dueAt": "2026-09-01T04:00:00Z",
+      "createdAt": "2026-08-15T14:00:00Z",
+      "paidAt": "2026-08-28T15:30:00Z",
+      "paymentId": "pay_002",
+      "requestId": null
+    },
+    {
+      "id": "chg_003",
+      "buildingId": "bld_harbor",
+      "unitId": "unit_hvl_4b",
+      "residentId": "usr_res_amara",
+      "kind": "rent",
+      "description": "October rent",
+      "amountCents": 245000,
+      "dueAt": "2026-10-01T04:00:00Z",
+      "createdAt": "2026-09-15T14:00:00Z",
+      "paidAt": "2026-09-29T13:10:00Z",
+      "paymentId": "pay_003",
+      "requestId": null
+    },
+    {
+      "id": "chg_004",
+      "buildingId": "bld_harbor",
+      "unitId": "unit_hvl_4b",
+      "residentId": "usr_res_amara",
+      "kind": "rent",
+      "description": "November rent",
+      "amountCents": 245000,
+      "dueAt": "2026-11-01T04:00:00Z",
+      "createdAt": "2026-10-15T14:00:00Z",
+      "paidAt": null,
+      "paymentId": null,
+      "requestId": null
+    },
+    {
+      "id": "chg_005",
+      "buildingId": "bld_harbor",
+      "unitId": "unit_hvl_7a",
+      "residentId": "usr_res_diego",
+      "kind": "rent",
+      "description": "August rent",
+      "amountCents": 280000,
+      "dueAt": "2026-08-01T04:00:00Z",
+      "createdAt": "2026-07-15T14:00:00Z",
+      "paidAt": "2026-07-28T15:30:00Z",
+      "paymentId": "pay_004",
+      "requestId": null
+    },
+    {
+      "id": "chg_006",
+      "buildingId": "bld_harbor",
+      "unitId": "unit_hvl_7a",
+      "residentId": "usr_res_diego",
+      "kind": "rent",
+      "description": "September rent",
+      "amountCents": 280000,
+      "dueAt": "2026-09-01T04:00:00Z",
+      "createdAt": "2026-08-15T14:00:00Z",
+      "paidAt": "2026-08-28T15:30:00Z",
+      "paymentId": "pay_005",
+      "requestId": null
+    },
+    {
+      "id": "chg_007",
+      "buildingId": "bld_harbor",
+      "unitId": "unit_hvl_7a",
+      "residentId": "usr_res_diego",
+      "kind": "rent",
+      "description": "October rent",
+      "amountCents": 280000,
+      "dueAt": "2026-10-01T04:00:00Z",
+      "createdAt": "2026-09-15T14:00:00Z",
+      "paidAt": null,
+      "paymentId": null,
+      "requestId": null
+    },
+    {
+      "id": "chg_008",
+      "buildingId": "bld_harbor",
+      "unitId": "unit_hvl_7a",
+      "residentId": "usr_res_diego",
+      "kind": "rent",
+      "description": "November rent",
+      "amountCents": 280000,
+      "dueAt": "2026-11-01T04:00:00Z",
+      "createdAt": "2026-10-15T14:00:00Z",
+      "paidAt": null,
+      "paymentId": null,
+      "requestId": null
+    },
+    {
+      "id": "chg_009",
+      "buildingId": "bld_maple",
+      "unitId": "unit_mpc_2c",
+      "residentId": "usr_res_meilin",
+      "kind": "rent",
+      "description": "August rent",
+      "amountCents": 195000,
+      "dueAt": "2026-08-01T04:00:00Z",
+      "createdAt": "2026-07-15T14:00:00Z",
+      "paidAt": "2026-07-28T15:30:00Z",
+      "paymentId": "pay_006",
+      "requestId": null
+    },
+    {
+      "id": "chg_010",
+      "buildingId": "bld_maple",
+      "unitId": "unit_mpc_2c",
+      "residentId": "usr_res_meilin",
+      "kind": "rent",
+      "description": "September rent",
+      "amountCents": 195000,
+      "dueAt": "2026-09-01T04:00:00Z",
+      "createdAt": "2026-08-15T14:00:00Z",
+      "paidAt": "2026-08-28T15:30:00Z",
+      "paymentId": "pay_007",
+      "requestId": null
+    },
+    {
+      "id": "chg_011",
+      "buildingId": "bld_maple",
+      "unitId": "unit_mpc_2c",
+      "residentId": "usr_res_meilin",
+      "kind": "rent",
+      "description": "October rent",
+      "amountCents": 195000,
+      "dueAt": "2026-10-01T04:00:00Z",
+      "createdAt": "2026-09-15T14:00:00Z",
+      "paidAt": "2026-09-29T13:10:00Z",
+      "paymentId": "pay_008",
+      "requestId": null
+    },
+    {
+      "id": "chg_012",
+      "buildingId": "bld_maple",
+      "unitId": "unit_mpc_2c",
+      "residentId": "usr_res_meilin",
+      "kind": "rent",
+      "description": "November rent",
+      "amountCents": 195000,
+      "dueAt": "2026-11-01T04:00:00Z",
+      "createdAt": "2026-10-15T14:00:00Z",
+      "paidAt": null,
+      "paymentId": null,
+      "requestId": null
+    },
+    {
+      "id": "chg_013",
+      "buildingId": "bld_maple",
+      "unitId": "unit_mpc_1a",
+      "residentId": "usr_res_rashid",
+      "kind": "rent",
+      "description": "August rent",
+      "amountCents": 185000,
+      "dueAt": "2026-08-01T04:00:00Z",
+      "createdAt": "2026-07-15T14:00:00Z",
+      "paidAt": "2026-07-28T15:30:00Z",
+      "paymentId": "pay_009",
+      "requestId": null
+    },
+    {
+      "id": "chg_014",
+      "buildingId": "bld_maple",
+      "unitId": "unit_mpc_1a",
+      "residentId": "usr_res_rashid",
+      "kind": "rent",
+      "description": "September rent",
+      "amountCents": 185000,
+      "dueAt": "2026-09-01T04:00:00Z",
+      "createdAt": "2026-08-15T14:00:00Z",
+      "paidAt": "2026-08-28T15:30:00Z",
+      "paymentId": "pay_010",
+      "requestId": null
+    },
+    {
+      "id": "chg_015",
+      "buildingId": "bld_maple",
+      "unitId": "unit_mpc_1a",
+      "residentId": "usr_res_rashid",
+      "kind": "rent",
+      "description": "October rent",
+      "amountCents": 185000,
+      "dueAt": "2026-10-01T04:00:00Z",
+      "createdAt": "2026-09-15T14:00:00Z",
+      "paidAt": "2026-09-29T13:10:00Z",
+      "paymentId": "pay_011",
+      "requestId": null
+    },
+    {
+      "id": "chg_016",
+      "buildingId": "bld_maple",
+      "unitId": "unit_mpc_1a",
+      "residentId": "usr_res_rashid",
+      "kind": "rent",
+      "description": "November rent",
+      "amountCents": 185000,
+      "dueAt": "2026-11-01T04:00:00Z",
+      "createdAt": "2026-10-15T14:00:00Z",
+      "paidAt": null,
+      "paymentId": null,
+      "requestId": null
+    },
+    {
+      "id": "chg_017",
+      "buildingId": "bld_linden",
+      "unitId": "unit_lin_12f",
+      "residentId": "usr_res_priya",
+      "kind": "rent",
+      "description": "August rent",
+      "amountCents": 340000,
+      "dueAt": "2026-08-01T04:00:00Z",
+      "createdAt": "2026-07-15T14:00:00Z",
+      "paidAt": "2026-07-28T15:30:00Z",
+      "paymentId": "pay_012",
+      "requestId": null
+    },
+    {
+      "id": "chg_018",
+      "buildingId": "bld_linden",
+      "unitId": "unit_lin_12f",
+      "residentId": "usr_res_priya",
+      "kind": "rent",
+      "description": "September rent",
+      "amountCents": 340000,
+      "dueAt": "2026-09-01T04:00:00Z",
+      "createdAt": "2026-08-15T14:00:00Z",
+      "paidAt": "2026-08-28T15:30:00Z",
+      "paymentId": "pay_013",
+      "requestId": null
+    },
+    {
+      "id": "chg_019",
+      "buildingId": "bld_linden",
+      "unitId": "unit_lin_12f",
+      "residentId": "usr_res_priya",
+      "kind": "rent",
+      "description": "October rent",
+      "amountCents": 340000,
+      "dueAt": "2026-10-01T04:00:00Z",
+      "createdAt": "2026-09-15T14:00:00Z",
+      "paidAt": "2026-09-29T13:10:00Z",
+      "paymentId": "pay_014",
+      "requestId": null
+    },
+    {
+      "id": "chg_020",
+      "buildingId": "bld_linden",
+      "unitId": "unit_lin_12f",
+      "residentId": "usr_res_priya",
+      "kind": "rent",
+      "description": "November rent",
+      "amountCents": 340000,
+      "dueAt": "2026-11-01T04:00:00Z",
+      "createdAt": "2026-10-15T14:00:00Z",
+      "paidAt": null,
+      "paymentId": null,
+      "requestId": null
+    },
+    {
+      "id": "chg_021",
+      "buildingId": "bld_linden",
+      "unitId": "unit_lin_5d",
+      "residentId": "usr_res_jonah",
+      "kind": "rent",
+      "description": "August rent",
+      "amountCents": 260000,
+      "dueAt": "2026-08-01T04:00:00Z",
+      "createdAt": "2026-07-15T14:00:00Z",
+      "paidAt": "2026-07-28T15:30:00Z",
+      "paymentId": "pay_015",
+      "requestId": null
+    },
+    {
+      "id": "chg_022",
+      "buildingId": "bld_linden",
+      "unitId": "unit_lin_5d",
+      "residentId": "usr_res_jonah",
+      "kind": "rent",
+      "description": "September rent",
+      "amountCents": 260000,
+      "dueAt": "2026-09-01T04:00:00Z",
+      "createdAt": "2026-08-15T14:00:00Z",
+      "paidAt": "2026-08-28T15:30:00Z",
+      "paymentId": "pay_016",
+      "requestId": null
+    },
+    {
+      "id": "chg_023",
+      "buildingId": "bld_linden",
+      "unitId": "unit_lin_5d",
+      "residentId": "usr_res_jonah",
+      "kind": "rent",
+      "description": "October rent",
+      "amountCents": 260000,
+      "dueAt": "2026-10-01T04:00:00Z",
+      "createdAt": "2026-09-15T14:00:00Z",
+      "paidAt": null,
+      "paymentId": null,
+      "requestId": null
+    },
+    {
+      "id": "chg_024",
+      "buildingId": "bld_linden",
+      "unitId": "unit_lin_5d",
+      "residentId": "usr_res_jonah",
+      "kind": "rent",
+      "description": "November rent",
+      "amountCents": 260000,
+      "dueAt": "2026-11-01T04:00:00Z",
+      "createdAt": "2026-10-15T14:00:00Z",
+      "paidAt": null,
+      "paymentId": null,
+      "requestId": null
+    },
+    {
+      "id": "chg_025",
+      "buildingId": "bld_harbor",
+      "unitId": "unit_hvl_4b",
+      "residentId": "usr_res_amara",
+      "kind": "utilities",
+      "description": "September water and sewer",
+      "amountCents": 8640,
+      "dueAt": "2026-10-25T04:00:00Z",
+      "createdAt": "2026-10-10T14:00:00Z",
+      "paidAt": null,
+      "paymentId": null,
+      "requestId": null
+    },
+    {
+      "id": "chg_026",
+      "buildingId": "bld_harbor",
+      "unitId": "unit_hvl_7a",
+      "residentId": "usr_res_diego",
+      "kind": "fee",
+      "description": "Late fee: October rent",
+      "amountCents": 7500,
+      "dueAt": "2026-10-20T04:00:00Z",
+      "createdAt": "2026-10-06T14:00:00Z",
+      "paidAt": null,
+      "paymentId": null,
+      "requestId": null
+    },
+    {
+      "id": "chg_027",
+      "buildingId": "bld_maple",
+      "unitId": "unit_mpc_2c",
+      "residentId": "usr_res_meilin",
+      "kind": "utilities",
+      "description": "September water and sewer",
+      "amountCents": 6210,
+      "dueAt": "2026-10-25T04:00:00Z",
+      "createdAt": "2026-10-10T14:00:00Z",
+      "paidAt": "2026-10-12T22:05:00Z",
+      "paymentId": "pay_017",
+      "requestId": null
+    },
+    {
+      "id": "chg_028",
+      "buildingId": "bld_linden",
+      "unitId": "unit_lin_12f",
+      "residentId": "usr_res_priya",
+      "kind": "fee",
+      "description": "Freight elevator booking",
+      "amountCents": 5000,
+      "dueAt": "2026-10-30T04:00:00Z",
+      "createdAt": "2026-10-16T14:30:00Z",
+      "paidAt": null,
+      "paymentId": null,
+      "requestId": null
+    },
+    {
+      "id": "chg_029",
+      "buildingId": "bld_linden",
+      "unitId": "unit_lin_5d",
+      "residentId": "usr_res_jonah",
+      "kind": "fee",
+      "description": "Late fee: October rent",
+      "amountCents": 7500,
+      "dueAt": "2026-10-20T04:00:00Z",
+      "createdAt": "2026-10-06T14:00:00Z",
+      "paidAt": null,
+      "paymentId": null,
+      "requestId": null
+    }
+  ],
+  "payments": [
+    {
+      "id": "pay_001",
+      "reference": "PAY-2001",
+      "buildingId": "bld_harbor",
+      "unitId": "unit_hvl_4b",
+      "residentId": "usr_res_amara",
+      "chargeIds": ["chg_001"],
+      "amountCents": 245000,
+      "method": "card",
+      "createdAt": "2026-07-28T15:30:00Z"
+    },
+    {
+      "id": "pay_002",
+      "reference": "PAY-2002",
+      "buildingId": "bld_harbor",
+      "unitId": "unit_hvl_4b",
+      "residentId": "usr_res_amara",
+      "chargeIds": ["chg_002"],
+      "amountCents": 245000,
+      "method": "card",
+      "createdAt": "2026-08-28T15:30:00Z"
+    },
+    {
+      "id": "pay_003",
+      "reference": "PAY-2003",
+      "buildingId": "bld_harbor",
+      "unitId": "unit_hvl_4b",
+      "residentId": "usr_res_amara",
+      "chargeIds": ["chg_003"],
+      "amountCents": 245000,
+      "method": "card",
+      "createdAt": "2026-09-29T13:10:00Z"
+    },
+    {
+      "id": "pay_004",
+      "reference": "PAY-2004",
+      "buildingId": "bld_harbor",
+      "unitId": "unit_hvl_7a",
+      "residentId": "usr_res_diego",
+      "chargeIds": ["chg_005"],
+      "amountCents": 280000,
+      "method": "bank",
+      "createdAt": "2026-07-28T15:30:00Z"
+    },
+    {
+      "id": "pay_005",
+      "reference": "PAY-2005",
+      "buildingId": "bld_harbor",
+      "unitId": "unit_hvl_7a",
+      "residentId": "usr_res_diego",
+      "chargeIds": ["chg_006"],
+      "amountCents": 280000,
+      "method": "bank",
+      "createdAt": "2026-08-28T15:30:00Z"
+    },
+    {
+      "id": "pay_006",
+      "reference": "PAY-2006",
+      "buildingId": "bld_maple",
+      "unitId": "unit_mpc_2c",
+      "residentId": "usr_res_meilin",
+      "chargeIds": ["chg_009"],
+      "amountCents": 195000,
+      "method": "bank",
+      "createdAt": "2026-07-28T15:30:00Z"
+    },
+    {
+      "id": "pay_007",
+      "reference": "PAY-2007",
+      "buildingId": "bld_maple",
+      "unitId": "unit_mpc_2c",
+      "residentId": "usr_res_meilin",
+      "chargeIds": ["chg_010"],
+      "amountCents": 195000,
+      "method": "bank",
+      "createdAt": "2026-08-28T15:30:00Z"
+    },
+    {
+      "id": "pay_008",
+      "reference": "PAY-2008",
+      "buildingId": "bld_maple",
+      "unitId": "unit_mpc_2c",
+      "residentId": "usr_res_meilin",
+      "chargeIds": ["chg_011"],
+      "amountCents": 195000,
+      "method": "bank",
+      "createdAt": "2026-09-29T13:10:00Z"
+    },
+    {
+      "id": "pay_009",
+      "reference": "PAY-2009",
+      "buildingId": "bld_maple",
+      "unitId": "unit_mpc_1a",
+      "residentId": "usr_res_rashid",
+      "chargeIds": ["chg_013"],
+      "amountCents": 185000,
+      "method": "bank",
+      "createdAt": "2026-07-28T15:30:00Z"
+    },
+    {
+      "id": "pay_010",
+      "reference": "PAY-2010",
+      "buildingId": "bld_maple",
+      "unitId": "unit_mpc_1a",
+      "residentId": "usr_res_rashid",
+      "chargeIds": ["chg_014"],
+      "amountCents": 185000,
+      "method": "bank",
+      "createdAt": "2026-08-28T15:30:00Z"
+    },
+    {
+      "id": "pay_011",
+      "reference": "PAY-2011",
+      "buildingId": "bld_maple",
+      "unitId": "unit_mpc_1a",
+      "residentId": "usr_res_rashid",
+      "chargeIds": ["chg_015"],
+      "amountCents": 185000,
+      "method": "bank",
+      "createdAt": "2026-09-29T13:10:00Z"
+    },
+    {
+      "id": "pay_012",
+      "reference": "PAY-2012",
+      "buildingId": "bld_linden",
+      "unitId": "unit_lin_12f",
+      "residentId": "usr_res_priya",
+      "chargeIds": ["chg_017"],
+      "amountCents": 340000,
+      "method": "card",
+      "createdAt": "2026-07-28T15:30:00Z"
+    },
+    {
+      "id": "pay_013",
+      "reference": "PAY-2013",
+      "buildingId": "bld_linden",
+      "unitId": "unit_lin_12f",
+      "residentId": "usr_res_priya",
+      "chargeIds": ["chg_018"],
+      "amountCents": 340000,
+      "method": "card",
+      "createdAt": "2026-08-28T15:30:00Z"
+    },
+    {
+      "id": "pay_014",
+      "reference": "PAY-2014",
+      "buildingId": "bld_linden",
+      "unitId": "unit_lin_12f",
+      "residentId": "usr_res_priya",
+      "chargeIds": ["chg_019"],
+      "amountCents": 340000,
+      "method": "card",
+      "createdAt": "2026-09-29T13:10:00Z"
+    },
+    {
+      "id": "pay_015",
+      "reference": "PAY-2015",
+      "buildingId": "bld_linden",
+      "unitId": "unit_lin_5d",
+      "residentId": "usr_res_jonah",
+      "chargeIds": ["chg_021"],
+      "amountCents": 260000,
+      "method": "bank",
+      "createdAt": "2026-07-28T15:30:00Z"
+    },
+    {
+      "id": "pay_016",
+      "reference": "PAY-2016",
+      "buildingId": "bld_linden",
+      "unitId": "unit_lin_5d",
+      "residentId": "usr_res_jonah",
+      "chargeIds": ["chg_022"],
+      "amountCents": 260000,
+      "method": "bank",
+      "createdAt": "2026-08-28T15:30:00Z"
+    },
+    {
+      "id": "pay_017",
+      "reference": "PAY-2017",
+      "buildingId": "bld_maple",
+      "unitId": "unit_mpc_2c",
+      "residentId": "usr_res_meilin",
+      "chargeIds": ["chg_027"],
+      "amountCents": 6210,
+      "method": "bank",
+      "createdAt": "2026-10-12T22:05:00Z"
+    }
+  ]
+}
