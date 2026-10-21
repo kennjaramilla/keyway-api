@@ -45,17 +45,22 @@ test/app.ts        useApp(): in-memory MongoDB, re-seed per test, api.as("coordi
 
 All under `/api`. `@Public()` routes need no session.
 
-| Area     | Endpoints                                                                                                                                                     |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Health   | `GET /health` (public)                                                                                                                                        |
-| Session  | `GET /demo/people` (public), `GET\|POST\|DELETE /session`, `PUT /session/building`, `POST /demo/reset`                                                        |
-| Requests | `GET /requests?buildingId`, `POST /requests`, `GET /requests/:id`, `POST /requests/:id/{triage,assign,schedule,start,resolve,cancel,reopen}`                  |
-| Vendors  | `GET /vendors?buildingId`                                                                                                                                     |
-| Messages | `GET /threads?buildingId`, `POST /threads` (general chat), `GET\|POST /threads/:id/messages`, `POST /threads/:id/read` (`:id` = request id or chat thread id) |
+| Area        | Endpoints                                                                                                                                                     |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Health      | `GET /health` (public)                                                                                                                                        |
+| Session     | `GET /demo/people` (public), `GET\|POST\|DELETE /session`, `PUT /session/building`, `POST /demo/reset`                                                        |
+| Requests    | `GET /requests?buildingId`, `POST /requests`, `GET /requests/:id`, `POST /requests/:id/{triage,assign,schedule,start,resolve,cancel,reopen}`                  |
+| Vendors     | `GET /vendors?buildingId`                                                                                                                                     |
+| Messages    | `GET /threads?buildingId`, `POST /threads` (general chat), `GET\|POST /threads/:id/messages`, `POST /threads/:id/read` (`:id` = request id or chat thread id) |
+| House rules | `GET /rules?buildingId`                                                                                                                                       |
+| Billing     | `GET /billing`, `POST /billing/payments`, `GET /billing/units?buildingId` (staff), `GET\|POST /requests/:id/charges`                                          |
+| Dashboard   | `GET /dashboard` (manager)                                                                                                                                    |
 
 ## Conventions
 
 - Sessions use the same `keyway_session` cookie as the frontend (`<role>.<userId>.<activeBuildingId>`), now httpOnly. Every request re-checks the user and building against the database, so editing the cookie gains nothing.
 - Workflow steps use the shared status machine (`nextStatus`). Each step is one atomic update that also checks the status hasn't changed since it was read, so two people acting at once can't both win.
+- Payments mark charges paid with a guarded `updateMany` (`paidAt: null`), so a double submit pays once and the other gets 409.
+- The mock API's `?fail=messages` / `?fail=payments` demo toggles are frontend-only and don't exist here.
 - Errors are problem details JSON (`{ title, status, detail, code?, errors? }`), the same shape as the mock API.
 - `401` no session, `403` wrong role, `404` out of scope (never reveals that something exists), `409` invalid state change, `422` validation.
