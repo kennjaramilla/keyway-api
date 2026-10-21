@@ -24,7 +24,6 @@ type Event = { type: string; fromStatus?: string; toStatus?: string; note?: stri
 const api = useApp();
 
 describe("GET /api/requests and /api/requests/:id", () => {
-
   it("residents see only their own unit", async () => {
     const { body } = await api.as("resident").get("/api/requests").expect(200);
     expect(body.length).toBeGreaterThan(0);
@@ -66,7 +65,6 @@ describe("GET /api/requests and /api/requests/:id", () => {
 });
 
 describe("POST /api/requests", () => {
-
   it("creates a request owned by the signed-in resident, ignoring ids in the body", async () => {
     const { body } = await api
       .as("resident")
@@ -254,7 +252,6 @@ describe("workflow actions", () => {
 });
 
 describe("GET /api/vendors", () => {
-
   it("lists vendors serving the active building only", async () => {
     const maple = await api.as("coordinator", "bld_maple").get("/api/vendors").expect(200);
     expect(
