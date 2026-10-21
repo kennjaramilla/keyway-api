@@ -150,7 +150,7 @@ export class ThreadsService {
               lastReadAt: {},
             },
           },
-          { upsert: true, new: true },
+          { upsert: true, returnDocument: "after" },
         )
         .lean<{ _id: string }>();
       thread = (await this.store.findById("threads", doc?._id))!;

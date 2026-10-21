@@ -49,7 +49,7 @@ export class Store {
   /** Set fields on one document; returns the updated entity. */
   async update<C extends CollectionName>(name: C, id: string, set: Partial<Entity<C>>) {
     const doc = await this.model(name)
-      .findOneAndUpdate({ _id: id }, { $set: set }, { new: true })
+      .findOneAndUpdate({ _id: id }, { $set: set }, { returnDocument: "after" })
       .lean<{ _id: string }>();
     return doc ? toEntity<C>(doc) : null;
   }
