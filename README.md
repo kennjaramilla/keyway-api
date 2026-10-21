@@ -1,0 +1,30 @@
+# Keyway API
+
+The real backend for [Keyway](https://github.com/kennjaramilla/keyway), a property-maintenance demo where residents submit requests, coordinators work them and a manager watches the portfolio. Keyway ships with an in-browser mock API (MSW); this service implements the same contract with NestJS and MongoDB, so the frontend can switch to it with one setting.
+
+Fake data only.
+
+## Stack
+
+NestJS 12 (ESM), TypeScript strict, MongoDB 8 with Mongoose, Zod for request validation, Vitest + Supertest against an in-memory MongoDB, oxlint, Prettier, GitHub Actions and CodeQL. Node 22.
+
+## Run it
+
+```bash
+npm install
+npm run db:up        # MongoDB in Docker (docker compose), port 27017
+cp .env.example .env # optional: PORT and MONGODB_URI
+npm run start:dev    # http://localhost:4000/api/health
+```
+
+| Command                             | What it does                                                           |
+| ----------------------------------- | ---------------------------------------------------------------------- |
+| `npm run start:dev`                 | API on :4000 with watch                                                |
+| `npm test` / `npm run test:cov`     | Vitest; each spec file starts its own in-memory MongoDB                |
+| `npm run check`                     | lint + format check + typecheck + tests + build. Must pass before a PR |
+| `npm run db:up` / `npm run db:down` | Start / stop MongoDB in Docker                                         |
+
+## Conventions
+
+- Errors are problem details JSON (`{ title, status, detail, code?, errors? }`), the same shape as the mock API.
+- `401` no session, `403` wrong role, `404` out of scope (never reveals that something exists), `409` invalid state change, `422` validation.
