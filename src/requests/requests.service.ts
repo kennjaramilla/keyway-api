@@ -237,7 +237,7 @@ export class RequestsService {
             timeline: { id: newId("evt"), at, fromStatus: request.status, toStatus: to, ...event },
           },
         },
-        { new: true },
+        { returnDocument: "after" },
       )
       .lean<{ _id: string }>();
     if (!updated) throw invalidTransition(request, "changed");

@@ -45,12 +45,13 @@ test/app.ts        useApp(): in-memory MongoDB, re-seed per test, api.as("coordi
 
 All under `/api`. `@Public()` routes need no session.
 
-| Area     | Endpoints                                                                                                                                    |
-| -------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| Health   | `GET /health` (public)                                                                                                                       |
-| Session  | `GET /demo/people` (public), `GET\|POST\|DELETE /session`, `PUT /session/building`, `POST /demo/reset`                                       |
-| Requests | `GET /requests?buildingId`, `POST /requests`, `GET /requests/:id`, `POST /requests/:id/{triage,assign,schedule,start,resolve,cancel,reopen}` |
-| Vendors  | `GET /vendors?buildingId`                                                                                                                    |
+| Area     | Endpoints                                                                                                                                                     |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Health   | `GET /health` (public)                                                                                                                                        |
+| Session  | `GET /demo/people` (public), `GET\|POST\|DELETE /session`, `PUT /session/building`, `POST /demo/reset`                                                        |
+| Requests | `GET /requests?buildingId`, `POST /requests`, `GET /requests/:id`, `POST /requests/:id/{triage,assign,schedule,start,resolve,cancel,reopen}`                  |
+| Vendors  | `GET /vendors?buildingId`                                                                                                                                     |
+| Messages | `GET /threads?buildingId`, `POST /threads` (general chat), `GET\|POST /threads/:id/messages`, `POST /threads/:id/read` (`:id` = request id or chat thread id) |
 
 ## Conventions
 
