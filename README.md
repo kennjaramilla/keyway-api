@@ -24,7 +24,25 @@ npm run start:dev    # http://localhost:4000/api/health
 | `npm run check`                     | lint + format check + typecheck + tests + build. Must pass before a PR |
 | `npm run db:up` / `npm run db:down` | Start / stop MongoDB in Docker                                         |
 
+## Shared contract
+
+`src/domain` is copied from the frontend by `npm run sync:domain`: the Zod schemas, `permissions.ts` (the only place access rules live), the status machine and `seed.json`. Don't edit those files here. Change them in Keyway and sync, so the mock API and this API can't drift apart.
+
+An empty database is seeded on start, re-timed so the demo always looks current. `POST /api/demo/reset` re-seeds.
+
+## Layout
+
+```
+src/domain/        synced contract (schemas, permissions, seed)
+src/database/      Mongoose storage schemas, Store (typed access, id <-> _id), SeedService
+src/auth/          SessionGuard (global; @Public() opts out), @CurrentUser, authorize() -> 403/404
+src/common/        problem details, ZodPipe (422)
+src/<feature>/     controller + service + *.e2e.spec.ts
+test/app.ts        useApp(): in-memory MongoDB, re-seed per test, api.as("coordinator")
+```
+
 ## Conventions
 
+- Sessions use the same `keyway_session` cookie as the frontend (`<role>.<userId>.<activeBuildingId>`), now httpOnly. Every request re-checks the user and building against the database, so editing the cookie gains nothing.
 - Errors are problem details JSON (`{ title, status, detail, code?, errors? }`), the same shape as the mock API.
 - `401` no session, `403` wrong role, `404` out of scope (never reveals that something exists), `409` invalid state change, `422` validation.

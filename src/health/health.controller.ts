@@ -1,7 +1,9 @@
 import { Controller, Get } from "@nestjs/common";
+import { Public } from "../auth/session.guard.js";
 import { InjectConnection } from "@nestjs/mongoose";
 import type { Connection } from "mongoose";
 
+@Public()
 @Controller("health")
 export class HealthController {
   constructor(@InjectConnection() private readonly connection: Connection) {}
