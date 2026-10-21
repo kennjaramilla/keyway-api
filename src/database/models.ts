@@ -83,7 +83,7 @@ const requestSchema = new Schema(
 const threadSchema = new Schema(
   {
     _id: id,
-    requestId: { type: String, default: null, index: true },
+    requestId: { type: String, default: null },
     subject: nullableString,
     buildingId: ref,
     residentId: ref,
@@ -93,6 +93,12 @@ const threadSchema = new Schema(
     lastReadAt: { type: Schema.Types.Mixed, default: {} },
   },
   { ...options, minimize: false },
+);
+
+// One thread per request; general chats (requestId null) are exempt.
+threadSchema.index(
+  { requestId: 1 },
+  { unique: true, partialFilterExpression: { requestId: { $type: "string" } } },
 );
 
 const messageSchema = new Schema(
