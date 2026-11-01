@@ -4,6 +4,16 @@ import { categorySchema, statusSchema, urgencySchema } from "../requests/schema.
 
 const statusCounts = z.partialRecord(statusSchema, z.number().int());
 
+/** Dashboard date ranges in days (story 5.2). */
+export const DASHBOARD_RANGES = [7, 14, 30] as const;
+export type DashboardRange = (typeof DASHBOARD_RANGES)[number];
+export const dashboardRangeSchema = z.literal(DASHBOARD_RANGES);
+
+/** Query for GET /api/dashboard: `?days=7|14|30`, 7 when missing. Anything else is a 422. */
+export const dashboardQuerySchema = z.object({
+  days: z.coerce.number().pipe(dashboardRangeSchema).default(7),
+});
+
 /** GET /api/dashboard: portfolio metrics (definitions in docs/spec/data-model.md). */
 export const dashboardSchema = z.object({
   totals: z.object({
@@ -29,7 +39,9 @@ export const dashboardSchema = z.object({
     }),
   ),
   overdueByUrgency: z.array(z.object({ urgency: urgencySchema, overdue: z.number().int() })),
-  weekly: z.object({
+  /** The selected range compared with the same number of days before it. */
+  period: z.object({
+    days: dashboardRangeSchema,
     opened: z.number().int(),
     openedPrev: z.number().int(),
     resolved: z.number().int(),

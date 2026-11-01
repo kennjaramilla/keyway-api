@@ -54,7 +54,7 @@ All under `/api`. `@Public()` routes need no session.
 | Messages    | `GET /threads?buildingId`, `POST /threads` (general chat), `GET\|POST /threads/:id/messages`, `POST /threads/:id/read` (`:id` = request id or chat thread id) |
 | House rules | `GET /rules?buildingId`                                                                                                                                       |
 | Billing     | `GET /billing`, `POST /billing/payments`, `GET /billing/units?buildingId` (staff), `GET\|POST /requests/:id/charges`                                          |
-| Dashboard   | `GET /dashboard` (manager)                                                                                                                                    |
+| Dashboard   | `GET /dashboard?days=7\|14\|30` (manager)                                                                                                                     |
 
 ## Conventions
 
