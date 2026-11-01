@@ -28,3 +28,26 @@ describe("GET /api/dashboard", () => {
     await api.as("resident").get("/api/dashboard").expect(403);
   });
 });
+
+describe("GET /api/dashboard?days=", () => {
+  it("defaults to 7 days and widens the period and daily series to 14 or 30", async () => {
+    const manager = api.as("manager");
+    const week = (await manager.get("/api/dashboard").expect(200)).body;
+    expect(week.period.days).toBe(7);
+    expect(week.daily).toHaveLength(7);
+    const fortnight = (await manager.get("/api/dashboard?days=14").expect(200)).body;
+    expect(fortnight.period.days).toBe(14);
+    expect(fortnight.daily).toHaveLength(14);
+    expect(fortnight.period.opened).toBeGreaterThanOrEqual(week.period.opened);
+    const month = (await manager.get("/api/dashboard?days=30").expect(200)).body;
+    expect(month.daily).toHaveLength(30);
+    expect(month.totals).toEqual(week.totals);
+  });
+
+  it("rejects other ranges with 422, after the role check", async () => {
+    const { body } = await api.as("manager").get("/api/dashboard?days=5").expect(422);
+    expect(body.errors).toHaveProperty("days");
+    await api.as("manager").get("/api/dashboard?days=").expect(422);
+    await api.as("resident").get("/api/dashboard?days=5").expect(403);
+  });
+});

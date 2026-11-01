@@ -9,7 +9,7 @@ import {
 } from "../requests/schema.js";
 import { addDays, localDate } from "../requests/time.js";
 import type { Vendor } from "../vendors/schema.js";
-import type { Dashboard, VendorState } from "./schema.js";
+import type { Dashboard, DashboardRange, VendorState } from "./schema.js";
 
 const DAY_MS = 86_400_000;
 const HOUR_MS = 3_600_000;
@@ -80,6 +80,7 @@ export function computeDashboard(
   coordinators: Named[],
   now: Date = new Date(),
   vendors: Pick<Vendor, "id" | "name" | "trade">[] = [],
+  rangeDays: DashboardRange = 7,
 ): Dashboard {
   const open = requests.filter(isOpen);
   const overdue = open.filter((request) => isOverdue(request, now));
@@ -90,11 +91,13 @@ export function computeDashboard(
     list.filter((request) => states.get(request.id) === state).length;
 
   const nowMs = now.getTime();
-  const weekAgo = nowMs - 7 * DAY_MS;
-  const twoWeeksAgo = nowMs - 14 * DAY_MS;
+  const rangeStart = nowMs - rangeDays * DAY_MS;
+  const previousStart = nowMs - 2 * rangeDays * DAY_MS;
   const timeZone = buildings[0]?.timezone ?? "UTC";
   const today = localDate(now, timeZone);
-  const days = Array.from({ length: 7 }, (_, index) => addDays(today, index - 6));
+  const days = Array.from({ length: rangeDays }, (_, index) =>
+    addDays(today, index - (rangeDays - 1)),
+  );
 
   return {
     totals: {
@@ -120,13 +123,16 @@ export function computeDashboard(
       urgency,
       overdue: overdue.filter((request) => request.urgency === urgency).length,
     })),
-    weekly: {
-      opened: requests.filter((request) => within(request.createdAt, weekAgo, nowMs + 1)).length,
-      openedPrev: requests.filter((request) => within(request.createdAt, twoWeeksAgo, weekAgo))
+    period: {
+      days: rangeDays,
+      opened: requests.filter((request) => within(request.createdAt, rangeStart, nowMs + 1)).length,
+      openedPrev: requests.filter((request) => within(request.createdAt, previousStart, rangeStart))
         .length,
-      resolved: requests.filter((request) => within(request.resolvedAt, weekAgo, nowMs + 1)).length,
-      resolvedPrev: requests.filter((request) => within(request.resolvedAt, twoWeeksAgo, weekAgo))
+      resolved: requests.filter((request) => within(request.resolvedAt, rangeStart, nowMs + 1))
         .length,
+      resolvedPrev: requests.filter((request) =>
+        within(request.resolvedAt, previousStart, rangeStart),
+      ).length,
     },
     daily: days.map((date) => ({
       date,
@@ -183,11 +189,17 @@ export function onTimeRate({ met, atRisk, breached }: Dashboard["onTime"]) {
   return total ? Math.round(((met + atRisk) / total) * 100) : null;
 }
 
-/** "+3 vs last week", "−2 vs last week" or "Same as last week". */
-export function formatChange(current: number, previous: number) {
+/** "+3 vs last week", "−2 vs the previous 14 days" or "Same as last week". */
+export function formatChange(current: number, previous: number, days: DashboardRange = 7) {
+  const before = days === 7 ? "last week" : `the previous ${days} days`;
   const diff = current - previous;
-  if (diff === 0) return "Same as last week";
-  return `${diff > 0 ? "+" : "−"}${Math.abs(diff)} vs last week`;
+  if (diff === 0) return `Same as ${before}`;
+  return `${diff > 0 ? "+" : "−"}${Math.abs(diff)} vs ${before}`;
+}
+
+/** "this week" or "in the last 14 days". */
+export function periodLabel(days: DashboardRange) {
+  return days === 7 ? "this week" : `in the last ${days} days`;
 }
 
 /** "2.1 days" or "5.5 hours" for a duration in hours. */
