@@ -7,11 +7,13 @@ import { Store } from "../database/store.js";
 import { can, type Action } from "../domain/auth/permissions.js";
 import {
   assignSchema,
+  canChangeVendor,
   canStillReopen,
   cancelSchema,
   makeRequestCreateSchema,
   makeScheduleSchema,
   nextStatus,
+  reassignErrors,
   reopenSchema,
   resolveSchema,
   triageSchema,
@@ -147,24 +149,27 @@ export class RequestsService {
         return record({ type: "triaged", actorId: user.id, note: note || null }, next, changes);
       }
       case "assign": {
-        if (found.status !== "triaged" && found.status !== "scheduled") {
-          throw invalidTransition(found, "assigned");
-        }
-        const { vendorId } = parse(assignSchema, body);
+        if (!canChangeVendor(found.status)) throw invalidTransition(found, "assigned");
+        const input = parse(assignSchema, body);
         const vendor = await this.store.findOne("vendors", {
-          _id: vendorId,
+          _id: input.vendorId,
           buildingIds: found.buildingId,
         });
-        if (!vendor) {
-          throw new Problem(422, "Validation failed", "Some fields need attention.", {
-            errors: { vendorId: ["Choose a vendor who serves this building."] },
-          });
+        const errors = vendor
+          ? reassignErrors(found.vendorId, input)
+          : { vendorId: ["Choose a vendor who serves this building."] };
+        if (!vendor || errors) {
+          throw new Problem(422, "Validation failed", "Some fields need attention.", { errors });
         }
-        return record(
-          { type: "vendor_assigned", actorId: user.id, meta: { vendorId: vendor.id } },
-          found.status,
-          { vendorId: vendor.id },
-        );
+        const event = found.vendorId
+          ? {
+              type: "vendor_reassigned" as const,
+              actorId: user.id,
+              note: input.reason ?? null,
+              meta: { vendorId: vendor.id, fromVendorId: found.vendorId },
+            }
+          : { type: "vendor_assigned" as const, actorId: user.id, meta: { vendorId: vendor.id } };
+        return record(event, found.status, { vendorId: vendor.id });
       }
       case "schedule": {
         const next = nextStatus(found.status, "request:schedule");

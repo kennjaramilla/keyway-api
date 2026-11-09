@@ -103,6 +103,7 @@ const TIMELINE_EVENT_TYPES = [
   "created",
   "triaged",
   "vendor_assigned",
+  "vendor_reassigned",
   "scheduled",
   "rescheduled",
   "started",
@@ -130,7 +131,11 @@ const timelineEventSchema = z.object({
   toStatus: statusSchema.nullish(),
   note: z.string().nullish(),
   meta: z
-    .object({ vendorId: z.string().optional(), visitWindow: visitWindowSchema.optional() })
+    .object({
+      vendorId: z.string().optional(),
+      fromVendorId: z.string().optional(),
+      visitWindow: visitWindowSchema.optional(),
+    })
     .nullish(),
 });
 export type TimelineEvent = z.infer<typeof timelineEventSchema>;
@@ -284,7 +289,33 @@ export const triageSchema = z.object({
   note: z.string().trim().max(500, "Keep the note under 500 characters.").optional(),
 });
 
-export const assignSchema = z.object({ vendorId: z.string().min(1, "Choose a vendor.") });
+export const assignSchema = z.object({
+  vendorId: z.string().min(1, "Choose a vendor."),
+  reason: z.string().trim().max(500, "Keep the reason under 500 characters.").optional(),
+});
+export type AssignInput = z.infer<typeof assignSchema>;
+
+/** A vendor can be assigned, or changed, until the work is done (2.9). */
+export const VENDOR_STATUSES: readonly Status[] = ["triaged", "scheduled", "in_progress"];
+export const canChangeVendor = (status: Status) => VENDOR_STATUSES.includes(status);
+
+/**
+ * Field errors for changing an existing vendor: it must be a different vendor,
+ * with a reason. Null when the input is fine. Shared by the mock and real API.
+ */
+export function reassignErrors(
+  currentVendorId: string | null,
+  input: AssignInput,
+): Record<string, string[]> | null {
+  if (!currentVendorId) return null;
+  if (input.vendorId === currentVendorId) {
+    return { vendorId: ["This vendor is already assigned. Choose a different one."] };
+  }
+  if (!input.reason || input.reason.length < 5) {
+    return { reason: ["Say why the vendor is changing (at least 5 characters)."] };
+  }
+  return null;
+}
 
 export const cancelSchema = z.object({
   reason: z.string().trim().max(500, "Keep the reason under 500 characters.").optional(),

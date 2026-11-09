@@ -170,6 +170,50 @@ describe("workflow actions", () => {
     expect(body.errors).toHaveProperty("vendorId");
   });
 
+  it("changes an assigned vendor with a reason, keeping status and visit window (2.9)", async () => {
+    // KW-1023 is scheduled with Corner Appliance Repair.
+    const before = await api.as("manager").get("/api/requests/req_023").expect(200);
+    const { body } = await api
+      .as("manager")
+      .post("/api/requests/req_023/assign", {
+        vendorId: "ven_plumblevel",
+        reason: "Corner can't make the window.",
+      })
+      .expect(200);
+    expect(body).toMatchObject({
+      status: "scheduled",
+      vendorName: "Plumb & Level Handyman",
+      visitWindow: before.body.visitWindow,
+    });
+    expect(body.timeline.at(-1)).toMatchObject({
+      type: "vendor_reassigned",
+      note: "Corner can't make the window.",
+      meta: { vendorId: "ven_plumblevel", fromVendorId: "ven_corner" },
+    });
+  });
+
+  it("allows a vendor change while work is in progress", async () => {
+    // KW-1017 is in progress with Tidewater.
+    const { body } = await coordinator()
+      .post("/api/requests/req_017/assign", {
+        vendorId: "ven_plumblevel",
+        reason: "Tidewater didn't show up.",
+      })
+      .expect(200);
+    expect(body).toMatchObject({ status: "in_progress", vendorName: "Plumb & Level Handyman" });
+  });
+
+  it("rejects the same vendor or a missing reason when changing vendor", async () => {
+    // KW-1014 already has Ironbark.
+    const errorsFor = async (body: object) =>
+      (await coordinator().post("/api/requests/req_014/assign", body).expect(422)).body.errors;
+    expect(await errorsFor({ vendorId: "ven_ironbark", reason: "Same again" })).toHaveProperty(
+      "vendorId",
+    );
+    expect(await errorsFor({ vendorId: "ven_tidewater" })).toHaveProperty("reason");
+    expect(await errorsFor({ vendorId: "ven_tidewater", reason: "no" })).toHaveProperty("reason");
+  });
+
   it("is 403 for the wrong role and 404 out of scope", async () => {
     await api.as("resident").post("/api/requests/req_030/triage", {}).expect(403);
     await api.as("usr_res_diego").post("/api/requests/req_030/triage", {}).expect(404);
