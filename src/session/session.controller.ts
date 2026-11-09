@@ -5,10 +5,16 @@ import { clearSession, writeSession } from "../auth/session-cookie.js";
 import { CurrentUser, Public } from "../auth/session.guard.js";
 import { notFound } from "../common/problem.js";
 import { ZodPipe } from "../common/zod.pipe.js";
+import { config } from "../config.js";
 import { SeedService } from "../database/seed.service.js";
 import { Store } from "../database/store.js";
 import { signInSchema, switchBuildingSchema, type SessionUser } from "../domain/session/schema.js";
 import { SessionService } from "./session.service.js";
+
+/** With demo mode off the shortcut routes don't exist; existing sessions keep working. */
+function requireDemoMode() {
+  if (!config.demoMode) throw notFound();
+}
 
 @Controller()
 export class SessionController {
@@ -21,6 +27,7 @@ export class SessionController {
   @Public()
   @Get("demo/people")
   people() {
+    requireDemoMode();
     return this.sessions.people();
   }
 
@@ -37,6 +44,7 @@ export class SessionController {
     @Body(new ZodPipe(signInSchema)) { userId }: { userId: string },
     @Res({ passthrough: true }) res: Response,
   ) {
+    requireDemoMode();
     const user = await this.store.findById("users", userId);
     if (!user) throw notFound("Person");
     const activeBuildingId = user.buildingIds[0];
@@ -68,6 +76,7 @@ export class SessionController {
   @Post("demo/reset")
   @HttpCode(204)
   async reset() {
+    requireDemoMode();
     await this.seed.reset();
   }
 }

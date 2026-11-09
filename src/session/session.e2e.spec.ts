@@ -96,4 +96,21 @@ describe("session endpoints", () => {
     const res = await api.http().get("/api/demo/people").expect(200);
     expect(res.body).toHaveLength(9);
   });
+
+  describe("with DEMO_MODE=off", () => {
+    beforeEach(() => vi.stubEnv("DEMO_MODE", "off"));
+    afterEach(() => vi.unstubAllEnvs());
+
+    it("refuses the demo people list, demo sign-in and reset with 404", async () => {
+      await api.http().get("/api/demo/people").expect(404);
+      await api.http().post("/api/session").send({ userId: "usr_coord_grace" }).expect(404);
+      await api.as("coordinator").post("/api/demo/reset").expect(404);
+    });
+
+    it("keeps existing sessions working", async () => {
+      const res = await api.as("coordinator").get("/api/session").expect(200);
+      expect(res.body.user.name).toBe("Grace Adeyemi");
+      await api.http().delete("/api/session").expect(204);
+    });
+  });
 });
