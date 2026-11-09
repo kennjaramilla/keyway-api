@@ -30,6 +30,10 @@ npm run start:dev    # http://localhost:4000/api/health
 
 An empty database is seeded on start, re-timed so the demo always looks current. `POST /api/demo/reset` re-seeds.
 
+## Demo mode
+
+Demo sign-in (pick a seeded person, no password) is on by default, like Keyway's `NEXT_PUBLIC_DEMO_MODE`. Set `DEMO_MODE=off` anywhere that isn't the public demo: `GET /demo/people`, `POST /session` and `POST /demo/reset` then answer 404, and sessions that already exist keep working. A real identity provider is still needed before real users (see Keyway's ADR 0005).
+
 ## Layout
 
 ```
