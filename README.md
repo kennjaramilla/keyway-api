@@ -59,6 +59,7 @@ All under `/api`. `@Public()` routes need no session.
 | House rules | `GET /rules?buildingId`                                                                                                                                       |
 | Billing     | `GET /billing`, `POST /billing/payments`, `GET /billing/units?buildingId` (staff), `GET\|POST /requests/:id/charges`                                          |
 | Dashboard   | `GET /dashboard?days=7\|14\|30` (manager)                                                                                                                     |
+| Buildings   | `GET /buildings/coverage`, `POST /buildings/:id/coordinator` (manager)                                                                                        |
 
 ## Conventions
 
