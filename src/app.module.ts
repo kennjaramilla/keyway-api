@@ -2,6 +2,7 @@ import { Module } from "@nestjs/common";
 import { APP_GUARD } from "@nestjs/core";
 import { SessionGuard } from "./auth/session.guard.js";
 import { BillingModule } from "./billing/billing.module.js";
+import { BuildingsModule } from "./buildings/buildings.module.js";
 import { DashboardModule } from "./dashboard/dashboard.module.js";
 import { DatabaseModule } from "./database/database.module.js";
 import { HealthController } from "./health/health.controller.js";
@@ -21,6 +22,7 @@ import { VendorsModule } from "./vendors/vendors.module.js";
     RulesModule,
     BillingModule,
     DashboardModule,
+    BuildingsModule,
   ],
   controllers: [HealthController],
   providers: [{ provide: APP_GUARD, useClass: SessionGuard }],
